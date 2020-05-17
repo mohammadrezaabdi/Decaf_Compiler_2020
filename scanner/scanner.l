@@ -2,8 +2,6 @@
   #include <stdio.h>
   #include <stdlib.h>
   #include <stdbool.h>
-  
-  bool doesValidFlag = true;
 %}
 
 /*defenitions*/
@@ -15,7 +13,7 @@ INTEGER	(0[xX]({DIGIT}|[a-fA-F])+)|({DIGIT}+)
 DOUBLE	(\.[0-9]+)|([0-9]+\.[0-9]*([Ee]([+-])?[0-9]+)?)
 STRING	\"[^\n\"]*\"
 BOOL	(true|false)
-COMMENT	(\/\*([^*]|\*+[^*\/])*\*+\/)|(\/\/(.*))
+COMMENT	(\/\*([^*]|\*+[^*\/])*\*+\/)|(\/\/[^\n]*)
 
 %%
 {WS}		{/*ignore white spaces*/}
@@ -29,20 +27,13 @@ void|int|double|bool|string|class|interface|null|this|extends|implements|for|whi
 {COMMENT}	{/*ignore comments*/}
 . 			{/*undefined input*/
 				printf("UNDEFIND_TOKEN\n");
-				doesValidFlag = false;
 				yyterminate();
 			}		
 %%
 int yywrap(){}
 int main(){
 	
-	while (1){
-		if(!doesValidFlag){
-		  yyterminate();
-		  return 0; 
-		}
-		yylex();
-	}
+	yylex();
 	return 0;
 }
 

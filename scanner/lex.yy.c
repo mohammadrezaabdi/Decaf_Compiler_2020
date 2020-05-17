@@ -504,10 +504,8 @@ char *yytext;
   #include <stdio.h>
   #include <stdlib.h>
   #include <stdbool.h>
-  
-  bool doesValidFlag = true;
 /*defenitions*/
-#line 511 "lex.yy.c"
+#line 509 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -658,9 +656,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 20 "scanner.l"
+#line 18 "scanner.l"
 
-#line 664 "lex.yy.c"
+#line 662 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -745,64 +743,63 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 21 "scanner.l"
+#line 19 "scanner.l"
 {/*ignore white spaces*/}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 22 "scanner.l"
+#line 20 "scanner.l"
 {printf("%s\n",yytext);}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 23 "scanner.l"
+#line 21 "scanner.l"
 {printf("%s\n",yytext);} 
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 24 "scanner.l"
+#line 22 "scanner.l"
 {printf("T_BOOLEANLITERAL %s\n",yytext);}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 25 "scanner.l"
+#line 23 "scanner.l"
 {printf("T_ID %s\n",yytext);}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 26 "scanner.l"
+#line 24 "scanner.l"
 {printf("T_STRINGLITERAL %s\n",yytext);}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 27 "scanner.l"
+#line 25 "scanner.l"
 {printf("T_INTLITERAL %s\n",yytext);}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 28 "scanner.l"
+#line 26 "scanner.l"
 {printf("T_DOUBLELITERAL %s\n",yytext);}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 29 "scanner.l"
+#line 27 "scanner.l"
 {/*ignore comments*/}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 30 "scanner.l"
+#line 28 "scanner.l"
 {/*undefined input*/
 				printf("UNDEFIND_TOKEN\n");
-				doesValidFlag = false;
 				yyterminate();
 			}		
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 35 "scanner.l"
+#line 32 "scanner.l"
 ECHO;
 	YY_BREAK
-#line 806 "lex.yy.c"
+#line 803 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1688,18 +1685,12 @@ int main()
 	return 0;
 	}
 #endif
-#line 35 "scanner.l"
+#line 32 "scanner.l"
 
 int yywrap(){}
 int main(){
 	
-	while (1){
-		if(!doesValidFlag){
-		  yyterminate();
-		  return 0; 
-		}
-		yylex();
-	}
+	yylex();
 	return 0;
 }
 
