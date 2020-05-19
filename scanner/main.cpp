@@ -12,7 +12,6 @@ int main(int argc, char *argv[]) {
     string output_file_name = argv[4];
 
     system("gcc -o a.out lex.yy.c");
-//    string run = "./a.exe " + input_file_name +" out/"+ output_file_name;
     string run = "./a.out tests/" + input_file_name + " out/" + output_file_name;
     system(run.c_str());
 }

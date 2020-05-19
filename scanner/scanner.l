@@ -38,9 +38,6 @@ int main(int argc, char *argv[]){
        printf("args error\n");
        return 1;
     }
-    for (int i=0;i<argc;i++){
-      printf("%s ",argv[i]);
-    }
     yyin = fopen(argv[1],"r");
     out = fopen(argv[2],"w");
 	yylex();
