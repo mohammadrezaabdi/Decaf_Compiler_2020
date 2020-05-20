@@ -10,7 +10,7 @@
 CHAR	[a-zA-Z]
 DIGIT	[0-9]
 WS		[ \r\n\t\r\v\f]+
-ID		{CHAR}(_|{CHAR}|{DIGIT}){0,30}
+ID		{CHAR}(_|{CHAR}|{DIGIT})*
 INTEGER	(0[xX]({DIGIT}|[a-fA-F])+)|({DIGIT}+)
 DOUBLE	[0-9]+\.[0-9]*([Ee]([+-])?[0-9]+)?
 STRING	\"[^\n\"]*\"
@@ -22,7 +22,13 @@ COMMENT	(\/\*([^*]|\*+[^*\/])*\*+\/)|(\/\/[^\n]*)
 void|int|double|bool|string|class|interface|null|this|extends|implements|for|while|if|else|return|break|new|NewArray|Print|ReadInteger|ReadLine {fprintf(out,"%s\n",yytext);}
 "+"|"-"|"*"|"/"|"%"|"<"|"<="|">"|">="|"="|"=="|"!="|"&&"|"||"|"!"|";"|","|"."|"[]"|"["|"]"|"("|")"|"{"|"}" {fprintf(out,"%s\n",yytext);}
 {BOOL}		{fprintf(out,"T_BOOLEANLITERAL %s\n",yytext);}
-{ID}		{fprintf(out,"T_ID %s\n",yytext);}
+{ID}		{
+				if(yyleng > 31){
+					fprintf(out,"UNDEFINED_TOKEN\n");
+					yyterminate();
+				} else{
+					fprintf(out,"T_ID %s\n",yytext);}
+			}
 {STRING}	{fprintf(out,"T_STRINGLITERAL %s\n",yytext);}
 {INTEGER}	{fprintf(out,"T_INTLITERAL %s\n",yytext);}
 {DOUBLE}	{fprintf(out,"T_DOUBLELITERAL %s\n",yytext);}
