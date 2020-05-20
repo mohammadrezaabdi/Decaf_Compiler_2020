@@ -6,13 +6,13 @@
   FILE *out;
 %}
 
-/*defenitions*/
+/*definitions*/
 CHAR	[a-zA-Z]
 DIGIT	[0-9]
 WS		[ \r\n\t\r\v\f]+
 ID		{CHAR}(_|{CHAR}|{DIGIT}){0,30}
 INTEGER	(0[xX]({DIGIT}|[a-fA-F])+)|({DIGIT}+)
-DOUBLE	(\.[0-9]+)|([0-9]+\.[0-9]*([Ee]([+-])?[0-9]+)?)
+DOUBLE	[0-9]+\.[0-9]*([Ee]([+-])?[0-9]+)?
 STRING	\"[^\n\"]*\"
 BOOL	(true|false)
 COMMENT	(\/\*([^*]|\*+[^*\/])*\*+\/)|(\/\/[^\n]*)
@@ -28,21 +28,20 @@ void|int|double|bool|string|class|interface|null|this|extends|implements|for|whi
 {DOUBLE}	{fprintf(out,"T_DOUBLELITERAL %s\n",yytext);}
 {COMMENT}	{/*ignore comments*/}
 . 			{/*undefined input*/
-				fprintf(out,"UNDEFIND_TOKEN\n");
+				fprintf(out,"UNDEFINED_TOKEN\n");
 				yyterminate();
 			}		
 %%
 int yywrap(){}
 int main(int argc, char *argv[]){
     if(argc < 3){
-       printf("args error\n");
+       printf("Arguments error\n");
        return 1;
     }
     yyin = fopen(argv[1],"r");
     out = fopen(argv[2],"w");
 	yylex();
 	fclose (out);
-	printf("successfully scanned\n");
+	printf("Scanning completed successfully.\n");
 	return 0;
 }
-
