@@ -1,9 +1,12 @@
 %{
     #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
     #include <stdbool.h>
-    /*#define YYDEBUG 1*/
-    int yylex();
+    #include "lex.yy.c"
     void yyerror(char const *s);
+    FILE *out;
+    #define YYDEBUG 1
 %}
     /* This part is related to semantic analysis: */
     %union {
@@ -15,6 +18,7 @@
     }
 
     /* Operator tokens and ID: */
+    %expect 1
     %left   '='
     %left   T_OR
     %left   T_AND
@@ -84,20 +88,28 @@
       ;actuals:     /*empty*/ | expr csExpr
      ;constant:     T_INTCONSTANT | T_DOUBLECONSTANT | T_BOOLCONSTANT | T_STRINGCONSTANT | T_NULL
 %%
-
-/*void yyerror(char const *s) {
-    fprintf(out, "NO");
-}*/
-
-/*
-int main() {
+int main(int argc, char *argv[]){
     int parsingResult;
-    parsingResult = yyparse();
-    if (parsingResult == 0) //TODO This part is based on page 78 of Bison doc; However, there is doubt about correctness and sufficiency of this part.
+    if(argc < 3){
+       printf("Arguments error\n");
+       return 1;
+    }
+  //  yydebug = 1; // for debuging
+    yyin = fopen(argv[1],"r");
+    out = fopen(argv[2],"w");
+  	parsingResult = yyparse();
+  	if (parsingResult == 0) //TODO This part is based on page 78 of Bison doc; However, there is doubt about correctness and sufficiency of this part.
         fprintf(out, "YES");
-    //else
-    //    fprintf(out, "NO");
-    return 0;
-}*/
+    else{
+        printf("NO");
+        return 0;
+      }
 
-#include "lex.yy.c"
+  	fclose (out);
+	  printf("parsing completed successfully.\n");
+  	return 0;
+}
+
+void yyerror(char const *s) {
+    fprintf(out, "NO");
+}

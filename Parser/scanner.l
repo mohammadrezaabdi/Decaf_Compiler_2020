@@ -1,10 +1,5 @@
 %{
-  #include <stdio.h>
-  #include <stdlib.h>
-  #include <string.h>
-  #include <stdbool.h>
   #include "Parser.tab.h"
-  FILE *out;
 %}
 
 /*definitions*/
@@ -75,39 +70,7 @@ ReadLine    {return T_READLINE;}
 {COMMENT}	{/*ignore comments*/}
 . 			{/*undefined input*/
 				yyterminate();
-			}		
+			}
 %%
 
-void yyerror(char const *s) {
-    fprintf(out, "NO");
-}
-
-int yywrap(){}
-int main(/*int argc, char *argv[]*/){
-
-    /*#ifdef YYDEBUG
-      yydebug = 1;
-    #endif*/
-
-    int parsingResult;
-
-    /*if(argc < 3){
-       printf("Arguments error\n");
-       return 1;
-    }
-    yyin = fopen(argv[1],"r");
-    out = fopen(argv[2],"w");
-	//yylex();*/
-
-    yyin = fopen("tests/t001-class1.in", "r");
-    out = fopen("out.txt", "w");
-	parsingResult = yyparse();
-	if (parsingResult == 0) //TODO This part is based on page 78 of Bison doc; However, there is doubt about correctness and sufficiency of this part.
-        fprintf(out, "YES");
-    //else
-        //printf("NO");
-
-	fclose (out);
-	//printf("Scanning completed successfully.\n");
-	return 0;
-}
+int yywrap(void){return 1;}

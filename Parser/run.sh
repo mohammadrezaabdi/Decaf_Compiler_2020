@@ -1,5 +1,6 @@
 #!/bin/bash
 mkdir -p out
+mkdir -p report
 cd ./tests
 prefix="t" ;
 dirlist=(`ls ${prefix}*.in`) ;
@@ -20,7 +21,8 @@ do
     if [$? -eq 1]; then
         echo "Bison Parse Error!"
     else
-        g++ main.cpp parser.tab.c parser.tab.h -std=c++14 -o main
+        # g++ main.cpp parser.tab.c parser.tab.h -std=c++14 -o main
+        g++ main.cpp -std=c++14 -o main
         if [ $? -eq 1 ]; then
             echo "Code did not Compiler"
         else
@@ -40,7 +42,7 @@ do
                     ((NUMBER_OF_FAILED++))
                     echo "---- test failed !"
                 echo
-                fi 
+                fi
             else
                 echo "Code did not execute successfuly!"
                 ((NUMBER_OF_FAILED++))
@@ -52,4 +54,3 @@ done
 
 echo "Passed : $NUMBER_OF_PASSED"
 echo "Failed : $NUMBER_OF_FAILED"
-

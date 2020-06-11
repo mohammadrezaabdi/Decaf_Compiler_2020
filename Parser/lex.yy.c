@@ -470,18 +470,13 @@ static char *yy_last_accepting_cpos;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "Parser.l"
+#line 1 "scanner.l"
 #define INITIAL 0
-#line 2 "Parser.l"
-  #include <stdio.h>
-  #include <stdlib.h>
-  #include <string.h>
-  #include <stdbool.h>
+#line 2 "scanner.l"
   #include "Parser.tab.h"
-  FILE *out;
 /*definitions*/
 /* _PAT means "pattern" in order to distinguish regex patterns from token names mentioned in parser file. */
-#line 485 "lex.yy.c"
+#line 480 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -632,9 +627,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 22 "Parser.l"
+#line 17 "scanner.l"
 
-#line 638 "lex.yy.c"
+#line 633 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -719,122 +714,122 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 23 "Parser.l"
+#line 18 "scanner.l"
 {/*ignore white spaces*/}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 24 "Parser.l"
+#line 19 "scanner.l"
 {return T_VOID;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 25 "Parser.l"
+#line 20 "scanner.l"
 {return T_INT;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 26 "Parser.l"
+#line 21 "scanner.l"
 {return T_DOUBLE;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 27 "Parser.l"
+#line 22 "scanner.l"
 {return T_BOOL;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 28 "Parser.l"
+#line 23 "scanner.l"
 {return T_STRING;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 29 "Parser.l"
+#line 24 "scanner.l"
 {return T_CLASS;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 30 "Parser.l"
+#line 25 "scanner.l"
 {return T_INTERFACE;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 31 "Parser.l"
+#line 26 "scanner.l"
 {return T_NULL;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 32 "Parser.l"
+#line 27 "scanner.l"
 {return T_THIS;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 33 "Parser.l"
+#line 28 "scanner.l"
 {return T_EXTENDS;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 34 "Parser.l"
+#line 29 "scanner.l"
 {return T_IMPLEMENTS;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 35 "Parser.l"
+#line 30 "scanner.l"
 {return T_FOR;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 36 "Parser.l"
+#line 31 "scanner.l"
 {return T_WHILE;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 37 "Parser.l"
+#line 32 "scanner.l"
 {return T_IF;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 38 "Parser.l"
+#line 33 "scanner.l"
 {return T_ELSE;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 39 "Parser.l"
+#line 34 "scanner.l"
 {return T_RETURN;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 40 "Parser.l"
+#line 35 "scanner.l"
 {return T_BREAK;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 41 "Parser.l"
+#line 36 "scanner.l"
 {return T_NEW;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 42 "Parser.l"
+#line 37 "scanner.l"
 {return T_NEWARRAY;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 43 "Parser.l"
+#line 38 "scanner.l"
 {return T_PRINT;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 44 "Parser.l"
+#line 39 "scanner.l"
 {return T_READINTEGER;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 45 "Parser.l"
+#line 40 "scanner.l"
 {return T_READLINE;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 46 "Parser.l"
+#line 41 "scanner.l"
 {
             if (strcmp(yytext, "<=") == 0)
                 return T_LEQ;
@@ -856,12 +851,12 @@ YY_RULE_SETUP
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 64 "Parser.l"
+#line 59 "scanner.l"
 {return T_BOOLCONSTANT;}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 65 "Parser.l"
+#line 60 "scanner.l"
 {
                     if (yyleng > 31) {
                         yyterminate();
@@ -872,37 +867,37 @@ YY_RULE_SETUP
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 72 "Parser.l"
+#line 67 "scanner.l"
 {return T_STRINGCONSTANT;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 73 "Parser.l"
+#line 68 "scanner.l"
 {return T_INTCONSTANT;}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 74 "Parser.l"
+#line 69 "scanner.l"
 {return T_DOUBLECONSTANT;}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 75 "Parser.l"
+#line 70 "scanner.l"
 {/*ignore comments*/}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 76 "Parser.l"
+#line 71 "scanner.l"
 {/*undefined input*/
 				yyterminate();
-			}		
+			}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 79 "Parser.l"
+#line 74 "scanner.l"
 ECHO;
 	YY_BREAK
-#line 906 "lex.yy.c"
+#line 901 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1788,39 +1783,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 79 "Parser.l"
+#line 74 "scanner.l"
 
 
-void yyerror(char const *s) {
-    fprintf(out, "NO");
-}
-
-int yywrap(){}
-int main(/*int argc, char *argv[]*/){
-
-    /*#ifdef YYDEBUG
-      yydebug = 1;
-    #endif*/
-
-    int parsingResult;
-
-    /*if(argc < 3){
-       printf("Arguments error\n");
-       return 1;
-    }
-    yyin = fopen(argv[1],"r");
-    out = fopen(argv[2],"w");
-	//yylex();*/
-
-    yyin = fopen("tests/t001-class1.in", "r");
-    out = fopen("out.txt", "w");
-	parsingResult = yyparse();
-	if (parsingResult == 0) //TODO This part is based on page 78 of Bison doc; However, there is doubt about correctness and sufficiency of this part.
-        fprintf(out, "YES");
-    //else
-        //printf("NO");
-
-	fclose (out);
-	//printf("Scanning completed successfully.\n");
-	return 0;
-}
+int yywrap(void){return 1;}

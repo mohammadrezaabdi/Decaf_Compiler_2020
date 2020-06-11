@@ -46,33 +46,34 @@
      T_BEQ = 262,
      T_LEQ = 263,
      T_UNARYMINUS = 264,
-     T_ID = 265,
-     T_VOID = 266,
-     T_INT = 267,
-     T_DOUBLE = 268,
-     T_BOOL = 269,
-     T_STRING = 270,
-     T_CLASS = 271,
-     T_INTERFACE = 272,
-     T_NULL = 273,
-     T_THIS = 274,
-     T_EXTENDS = 275,
-     T_IMPLEMENTS = 276,
-     T_FOR = 277,
-     T_WHILE = 278,
-     T_IF = 279,
-     T_ELSE = 280,
-     T_RETURN = 281,
-     T_BREAK = 282,
-     T_NEW = 283,
-     T_NEWARRAY = 284,
-     T_PRINT = 285,
-     T_READINTEGER = 286,
-     T_READLINE = 287,
-     T_INTCONSTANT = 288,
-     T_DOUBLECONSTANT = 289,
-     T_STRINGCONSTANT = 290,
-     T_BOOLCONSTANT = 291
+     PAIREDBRACES = 265,
+     T_ID = 266,
+     T_VOID = 267,
+     T_INT = 268,
+     T_DOUBLE = 269,
+     T_BOOL = 270,
+     T_STRING = 271,
+     T_CLASS = 272,
+     T_INTERFACE = 273,
+     T_NULL = 274,
+     T_THIS = 275,
+     T_EXTENDS = 276,
+     T_IMPLEMENTS = 277,
+     T_FOR = 278,
+     T_WHILE = 279,
+     T_IF = 280,
+     T_ELSE = 281,
+     T_RETURN = 282,
+     T_BREAK = 283,
+     T_NEW = 284,
+     T_NEWARRAY = 285,
+     T_PRINT = 286,
+     T_READINTEGER = 287,
+     T_READLINE = 288,
+     T_INTCONSTANT = 289,
+     T_DOUBLECONSTANT = 290,
+     T_STRINGCONSTANT = 291,
+     T_BOOLCONSTANT = 292
    };
 #endif
 
@@ -83,7 +84,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 8 "Parser.y"
+#line 12 "parser.y"
 
         int intLiteral;
         double doubleLiteral;
@@ -94,7 +95,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 98 "Parser.tab.h"
+#line 99 "parser.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

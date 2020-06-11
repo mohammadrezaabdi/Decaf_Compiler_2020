@@ -68,17 +68,20 @@
 /* Copy the first part of user declarations.  */
 
 /* Line 189 of yacc.c  */
-#line 1 "Parser.y"
+#line 1 "parser.y"
 
     #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
     #include <stdbool.h>
-    /*#define YYDEBUG 1*/
-    int yylex();
+    #include "lex.yy.c"
     void yyerror(char const *s);
+    FILE *out;
+    #define YYDEBUG 1
 
 
 /* Line 189 of yacc.c  */
-#line 82 "Parser.tab.c"
+#line 85 "parser.tab.c"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -150,7 +153,7 @@ typedef union YYSTYPE
 {
 
 /* Line 214 of yacc.c  */
-#line 9 "Parser.y"
+#line 12 "parser.y"
 
         int intLiteral;
         double doubleLiteral;
@@ -161,7 +164,7 @@ typedef union YYSTYPE
 
 
 /* Line 214 of yacc.c  */
-#line 165 "Parser.tab.c"
+#line 168 "parser.tab.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -173,7 +176,7 @@ typedef union YYSTYPE
 
 
 /* Line 264 of yacc.c  */
-#line 177 "Parser.tab.c"
+#line 180 "parser.tab.c"
 
 #ifdef short
 # undef short
@@ -500,17 +503,17 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    43,    43,    44,    44,    45,    45,    45,    45,    46,
-      46,    47,    48,    49,    49,    49,    49,    49,    49,    50,
-      50,    51,    51,    52,    52,    53,    54,    54,    55,    55,
-      56,    56,    57,    57,    58,    58,    59,    60,    60,    61,
-      61,    62,    63,    63,    64,    64,    64,    64,    64,    65,
-      65,    65,    66,    66,    67,    68,    68,    69,    70,    71,
-      72,    73,    74,    74,    75,    75,    75,    75,    75,    75,
-      76,    76,    76,    76,    77,    77,    78,    78,    79,    79,
-      79,    79,    80,    80,    80,    80,    81,    81,    81,    82,
-      82,    82,    83,    83,    84,    84,    85,    85,    85,    85,
-      85
+       0,    47,    47,    48,    48,    49,    49,    49,    49,    50,
+      50,    51,    52,    53,    53,    53,    53,    53,    53,    54,
+      54,    55,    55,    56,    56,    57,    58,    58,    59,    59,
+      60,    60,    61,    61,    62,    62,    63,    64,    64,    65,
+      65,    66,    67,    67,    68,    68,    68,    68,    68,    69,
+      69,    69,    70,    70,    71,    72,    72,    73,    74,    75,
+      76,    77,    78,    78,    79,    79,    79,    79,    79,    79,
+      80,    80,    80,    80,    81,    81,    82,    82,    83,    83,
+      83,    83,    84,    84,    84,    84,    85,    85,    85,    86,
+      86,    86,    87,    87,    88,    88,    89,    89,    89,    89,
+      89
 };
 #endif
 
@@ -1589,7 +1592,7 @@ yyreduce:
       
 
 /* Line 1455 of yacc.c  */
-#line 1593 "Parser.tab.c"
+#line 1596 "parser.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1801,22 +1804,31 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 86 "Parser.y"
+#line 90 "parser.y"
 
-
-/*void yyerror(char const *s) {
-    fprintf(out, "NO");
-}*/
-
-/*
-int main() {
+int main(int argc, char *argv[]){
     int parsingResult;
-    parsingResult = yyparse();
-    if (parsingResult == 0) //TODO This part is based on page 78 of Bison doc; However, there is doubt about correctness and sufficiency of this part.
+    if(argc < 3){
+       printf("Arguments error\n");
+       return 1;
+    }
+  //  yydebug = 1; // for debuging
+    yyin = fopen(argv[1],"r");
+    out = fopen(argv[2],"w");
+  	parsingResult = yyparse();
+  	if (parsingResult == 0) //TODO This part is based on page 78 of Bison doc; However, there is doubt about correctness and sufficiency of this part.
         fprintf(out, "YES");
-    //else
-    //    fprintf(out, "NO");
-    return 0;
-}*/
+    else{
+        printf("NO");
+        return 0;
+      }
 
-#include "lex.yy.c"
+  	fclose (out);
+	  printf("parsing completed successfully.\n");
+  	return 0;
+}
+
+void yyerror(char const *s) {
+    fprintf(out, "NO");
+}
+
