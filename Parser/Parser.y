@@ -101,12 +101,13 @@ int main(int argc, char *argv[]){
   	if (parsingResult == 0) //TODO This part is based on page 78 of Bison doc; However, there is doubt about correctness and sufficiency of this part.
         fprintf(out, "YES");
     else{
-        printf("NO");
+        printf("Parsing Error\n");
+        fclose (out);
         return 0;
       }
 
   	fclose (out);
-	  printf("parsing completed successfully.\n");
+	  printf("parsing completed with no semantic errors.\n");
   	return 0;
 }
 

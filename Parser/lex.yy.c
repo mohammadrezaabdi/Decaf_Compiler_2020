@@ -859,6 +859,7 @@ YY_RULE_SETUP
 #line 60 "scanner.l"
 {
                     if (yyleng > 31) {
+                        printf("lexical error: identifier size over 31\n");
                         yyterminate();
                     } else {
                         return T_ID;
@@ -867,37 +868,38 @@ YY_RULE_SETUP
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 67 "scanner.l"
+#line 68 "scanner.l"
 {return T_STRINGCONSTANT;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 68 "scanner.l"
+#line 69 "scanner.l"
 {return T_INTCONSTANT;}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 69 "scanner.l"
+#line 70 "scanner.l"
 {return T_DOUBLECONSTANT;}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 70 "scanner.l"
+#line 71 "scanner.l"
 {/*ignore comments*/}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 71 "scanner.l"
+#line 72 "scanner.l"
 {/*undefined input*/
+        printf("lexical error: undefined input\n");
 				yyterminate();
 			}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 74 "scanner.l"
+#line 76 "scanner.l"
 ECHO;
 	YY_BREAK
-#line 901 "lex.yy.c"
+#line 903 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1783,7 +1785,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 74 "scanner.l"
+#line 76 "scanner.l"
 
 
 int yywrap(void){return 1;}

@@ -1,4 +1,4 @@
-
+@
 int combine(int x, int y) {
     int z;
     string s;

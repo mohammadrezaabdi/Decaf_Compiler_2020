@@ -59,6 +59,7 @@ ReadLine    {return T_READLINE;}
 {BOOL_PAT}		{return T_BOOLCONSTANT;}
 {ID_PAT}	    {
                     if (yyleng > 31) {
+                        printf("lexical error: identifier size over 31\n");
                         yyterminate();
                     } else {
                         return T_ID;
@@ -69,6 +70,7 @@ ReadLine    {return T_READLINE;}
 {DOUBLE_PAT}	{return T_DOUBLECONSTANT;}
 {COMMENT}	{/*ignore comments*/}
 . 			{/*undefined input*/
+        printf("lexical error: undefined input\n");
 				yyterminate();
 			}
 %%
