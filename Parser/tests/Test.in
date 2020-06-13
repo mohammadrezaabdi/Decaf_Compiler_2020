@@ -1,12 +1,4 @@
-@
-int combine(int x, int y) {
-    int z;
-    string s;
-    s = "hi!";
-    z = x + y * 2;
-    return z + 1;
-}
-
 int main() {
-    int[] array;
+    int a;
+     a= 3*(5+6);
 }
