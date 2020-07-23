@@ -116,7 +116,7 @@ int main(int argc, char *argv[]){
       }
 
   	fclose (out);
-	  printf("parsing completed with no semantic errors.\n");
+	  printf("Parsing completed with no syntax errors.\n");
   	return 0;
 }
 
