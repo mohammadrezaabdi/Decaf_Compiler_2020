@@ -1,3 +1,12 @@
+//TODO: TAC code
+//TODO: multi-pass parsing
+//TODO: register allocation
+//TODO: symbol table
+//TODO: scoping
+//TODO: type casting & checking
+//TODO: mips code generation
+//TODO: inheritance (OP)
+
 %{
     #include <stdio.h>
     #include <stdlib.h>
