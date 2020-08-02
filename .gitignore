@@ -1,0 +1,6 @@
+/.idea
+/cmake-build-debug
+*.gch
+CMakeLists.txt
+*.out.stackdump
+*.output

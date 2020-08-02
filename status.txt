@@ -1,0 +1,41 @@
+type list :
+void : 0
+int : 1
+double : 2
+string : 3
+bool : 4
+array : 5
+function : 6
+
+const list (11):
+ NULL : void : null
+ const_1 : int : 1
+ const_2 : int : 0
+ const_3 : int : 2
+ const_4 : string : "\nThis program computes Fibonacci numbers (slowly.. but correctly!)\n"
+ const_5 : bool : true
+ const_6 : string : "\nEnter the fibonacci number you want: (-1 to quit) "
+ const_7 : string : "Fib("
+ const_8 : string : ") = "
+ const_9 : string : "\n"
+ const_10 : string : "Goodbye!\n"
+
+function list :
+0)
+  name : length
+  return type: int(0)
+  parameters (name, type (brace), passing) (0): 
+  status : non-member
+1)
+  name : fib
+  return type: int(0)
+  parameters (name, type (brace), passing) (1): (base, int(0), by value) 
+  status : non-member
+2)
+  name : main
+  return type: void(0)
+  parameters (name, type (brace), passing) (0): 
+  status : non-member
+
+class list :
+
