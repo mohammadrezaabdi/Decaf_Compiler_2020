@@ -6,19 +6,67 @@ string : 3
 bool : 4
 array : 5
 function : 6
+Random : 7
+Deck : 8
+BJDeck : 9
+Player : 10
+Dealer : 11
+House : 12
 
-const list (11):
+const list (53):
  NULL : void : null
- const_1 : int : 1
- const_2 : int : 0
- const_3 : int : 2
- const_4 : string : "\nThis program computes Fibonacci numbers (slowly.. but correctly!)\n"
- const_5 : bool : true
- const_6 : string : "\nEnter the fibonacci number you want: (-1 to quit) "
- const_7 : string : "Fib("
- const_8 : string : ") = "
- const_9 : string : "\n"
- const_10 : string : "Goodbye!\n"
+ const_1 : int : 15625
+ const_2 : int : 10000
+ const_3 : int : 22221
+ const_4 : int : 65536
+ const_5 : int : 52
+ const_6 : int : 0
+ const_7 : int : 1
+ const_8 : int : 13
+ const_9 : int : 8
+ const_10 : int : 11
+ const_11 : int : 10
+ const_12 : string : "Shuffling..."
+ const_13 : string : "done.\n"
+ const_14 : int : 1000
+ const_15 : string : "What is the name of player #"
+ const_16 : string : "? "
+ const_17 : string : " was dealt a "
+ const_18 : string : ".\n"
+ const_19 : int : 21
+ const_20 : bool : false
+ const_21 : string : "Would you like to double down?"
+ const_22 : int : 2
+ const_23 : string : ", your total is "
+ const_24 : bool : true
+ const_25 : string : "\n"
+ const_26 : string : "'s turn.\n"
+ const_27 : string : "Would you like a hit?"
+ const_28 : string : " busts with the big "
+ const_29 : string : "!\n"
+ const_30 : string : " stays at "
+ const_31 : string : ", you have $"
+ const_32 : string : "How much would you like to bet? "
+ const_33 : string : ", you won $"
+ const_34 : string : ", you lost $"
+ const_35 : string : ", you push!\n"
+ const_36 : string : "Dealer"
+ const_37 : int : 16
+ const_38 : string : "\nWelcome to CS143 BlackJack!\n"
+ const_39 : string : "---------------------------\n"
+ const_40 : string : "Please enter a random number seed: "
+ const_41 : string : "How many players do we have today? "
+ const_42 : string : "\nFirst, let's take bets.\n"
+ const_43 : string : "\nTime to resolve bets.\n"
+ const_44 : int : 26
+ const_45 : string : "\nDealer starts. "
+ const_46 : string : " (y/n) "
+ const_47 : string : "y"
+ const_48 : string : "Y"
+ const_49 : string : "\nDo you want to play another hand?"
+ const_50 : string : "Thank you for playing...come again soon.\n"
+ const_51 : string : "\nCS143 BlackJack Copyright (c) 1999 by Peter Mork.\n"
+ const_52 : string : "(2001 mods by jdz)\n"
 
 function list :
 0)
@@ -27,15 +75,197 @@ function list :
   parameters (name, type (brace), passing) (0): 
   status : non-member
 1)
-  name : fib
-  return type: int(0)
-  parameters (name, type (brace), passing) (1): (base, int(0), by value) 
-  status : non-member
+  name : Init
+  return type: void(0)
+  parameters (name, type (brace), passing) (1): (seedVal, int(0), by value) 
+  status : Random
 2)
+  name : GenRandom
+  return type: int(0)
+  parameters (name, type (brace), passing) (0): 
+  status : Random
+3)
+  name : RndInt
+  return type: int(0)
+  parameters (name, type (brace), passing) (1): (max, int(0), by value) 
+  status : Random
+4)
+  name : Init
+  return type: void(0)
+  parameters (name, type (brace), passing) (0): 
+  status : Deck
+5)
+  name : Shuffle
+  return type: void(0)
+  parameters (name, type (brace), passing) (0): 
+  status : Deck
+6)
+  name : GetCard
+  return type: int(0)
+  parameters (name, type (brace), passing) (0): 
+  status : Deck
+7)
+  name : Init
+  return type: void(0)
+  parameters (name, type (brace), passing) (0): 
+  status : BJDeck
+8)
+  name : DealCard
+  return type: int(0)
+  parameters (name, type (brace), passing) (0): 
+  status : BJDeck
+9)
+  name : Shuffle
+  return type: void(0)
+  parameters (name, type (brace), passing) (0): 
+  status : BJDeck
+10)
+  name : NumCardsRemaining
+  return type: int(0)
+  parameters (name, type (brace), passing) (0): 
+  status : BJDeck
+11)
+  name : Init
+  return type: void(0)
+  parameters (name, type (brace), passing) (1): (num, int(0), by value) 
+  status : Player
+12)
+  name : Hit
+  return type: void(0)
+  parameters (name, type (brace), passing) (1): (deck, BJDeck(0), by reference) 
+  status : Player
+13)
+  name : DoubleDown
+  return type: bool(0)
+  parameters (name, type (brace), passing) (1): (deck, BJDeck(0), by reference) 
+  status : Player
+14)
+  name : TakeTurn
+  return type: void(0)
+  parameters (name, type (brace), passing) (1): (deck, BJDeck(0), by reference) 
+  status : Player
+15)
+  name : HasMoney
+  return type: bool(0)
+  parameters (name, type (brace), passing) (0): 
+  status : Player
+16)
+  name : PrintMoney
+  return type: void(0)
+  parameters (name, type (brace), passing) (0): 
+  status : Player
+17)
+  name : PlaceBet
+  return type: void(0)
+  parameters (name, type (brace), passing) (0): 
+  status : Player
+18)
+  name : GetTotal
+  return type: int(0)
+  parameters (name, type (brace), passing) (0): 
+  status : Player
+19)
+  name : Resolve
+  return type: void(0)
+  parameters (name, type (brace), passing) (1): (dealer, int(0), by value) 
+  status : Player
+20)
+  name : Init
+  return type: void(0)
+  parameters (name, type (brace), passing) (1): (id, int(0), by value) 
+  status : Dealer
+21)
+  name : TakeTurn
+  return type: void(0)
+  parameters (name, type (brace), passing) (1): (deck, BJDeck(0), by reference) 
+  status : Dealer
+22)
+  name : SetupGame
+  return type: void(0)
+  parameters (name, type (brace), passing) (0): 
+  status : House
+23)
+  name : SetupPlayers
+  return type: void(0)
+  parameters (name, type (brace), passing) (0): 
+  status : House
+24)
+  name : TakeAllBets
+  return type: void(0)
+  parameters (name, type (brace), passing) (0): 
+  status : House
+25)
+  name : TakeAllTurns
+  return type: void(0)
+  parameters (name, type (brace), passing) (0): 
+  status : House
+26)
+  name : ResolveAllPlayers
+  return type: void(0)
+  parameters (name, type (brace), passing) (0): 
+  status : House
+27)
+  name : PrintAllMoney
+  return type: void(0)
+  parameters (name, type (brace), passing) (0): 
+  status : House
+28)
+  name : PlayOneGame
+  return type: void(0)
+  parameters (name, type (brace), passing) (0): 
+  status : House
+29)
+  name : GetYesOrNo
+  return type: bool(0)
+  parameters (name, type (brace), passing) (1): (prompt, string(0), by value) 
+  status : non-member
+30)
   name : main
   return type: void(0)
   parameters (name, type (brace), passing) (0): 
   status : non-member
 
 class list :
+1)
+  name : Random
+  type : Random
+  father : void
+  children (0) : 
+  fields (name, type) (1) : (seed, int(0)) 
+  Vtable (3) delta (0) : (Init, Random) (GenRandom, Random) (RndInt, Random) 
+2)
+  name : Deck
+  type : Deck
+  father : void
+  children (0) : 
+  fields (name, type) (2) : (current, int(0)) (cards, int(1)) 
+  Vtable (3) delta (0) : (Init, Deck) (Shuffle, Deck) (GetCard, Deck) 
+3)
+  name : BJDeck
+  type : BJDeck
+  father : void
+  children (0) : 
+  fields (name, type) (2) : (decks, Deck(1)) (numdealt, int(0)) 
+  Vtable (4) delta (0) : (Init, BJDeck) (DealCard, BJDeck) (Shuffle, BJDeck) (NumCardsRemaining, BJDeck) 
+4)
+  name : Player
+  type : Player
+  father : void
+  children (1) : Dealer 
+  fields (name, type) (6) : (total, int(0)) (aces, int(0)) (numcards, int(0)) (bet, int(0)) (money, int(0)) (name, string(0)) 
+  Vtable (9) delta (0) : (Init, Player) (Hit, Player) (DoubleDown, Player) (TakeTurn, Player) (HasMoney, Player) (PrintMoney, Player) (PlaceBet, Player) (GetTotal, Player) (Resolve, Player) 
+5)
+  name : Dealer
+  type : Dealer
+  father : Player
+  children (0) : 
+  fields (name, type) (6) : (total, int(0)) (aces, int(0)) (numcards, int(0)) (bet, int(0)) (money, int(0)) (name, string(0)) 
+  Vtable (11) delta (0) : (Init, Dealer) (TakeTurn, Dealer) (Init, Player) (Hit, Player) (DoubleDown, Player) (TakeTurn, Player) (HasMoney, Player) (PrintMoney, Player) (PlaceBet, Player) (GetTotal, Player) (Resolve, Player) 
+6)
+  name : House
+  type : House
+  father : void
+  children (0) : 
+  fields (name, type) (3) : (players, Player(1)) (dealer, Dealer(0)) (deck, BJDeck(0)) 
+  Vtable (7) delta (0) : (SetupGame, House) (SetupPlayers, House) (TakeAllBets, House) (TakeAllTurns, House) (ResolveAllPlayers, House) (PrintAllMoney, House) (PlayOneGame, House) 
 

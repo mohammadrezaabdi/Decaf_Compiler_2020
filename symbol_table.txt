@@ -1,21 +1,1320 @@
-SYMBOL TABLE [name, scope, type, is_field_type, locations * (line, col)]
-[length, 0, function, ]
-[const_1, 0, int, (3, 16) (12, 10) (18, 10) (31, 17) ]
-[const_2, 0, int, (11, 10) ]
-[const_3, 0, int, (13, 9) ]
-[const_4, 0, string, (27, 11) ]
-[const_5, 0, bool, (28, 11) ]
-[const_6, 0, string, (29, 13) ]
-[const_7, 0, string, (32, 13) ]
-[const_8, 0, string, (32, 25) ]
-[const_9, 0, string, (32, 41) ]
-[fib, 0, function, (32, 33) ]
+SCOPE [ID, start(l,c), end(l,c), parent] :
+[0 (1, 1) (315, 1) 0]
+[1 (2, 13) (19, 2) 0]
+[2 (6, 12) (8, 4) 1]
+[3 (6, 27) (8, 4) 2]
+[4 (10, 17) (13, 4) 1]
+[5 (10, 20) (13, 4) 4]
+[6 (15, 14) (17, 4) 1]
+[7 (15, 24) (17, 4) 6]
+[8 (23, 11) (54, 2) 0]
+[9 (28, 12) (30, 4) 8]
+[10 (28, 16) (30, 4) 9]
+[11 (32, 15) (45, 4) 8]
+[12 (32, 19) (45, 4) 11]
+[13 (33, 61) (35, 6) 12]
+[14 (36, 26) (44, 6) 12]
+[15 (47, 15) (53, 4) 8]
+[16 (47, 18) (53, 4) 15]
+[17 (56, 13) (100, 2) 0]
+[18 (61, 12) (68, 4) 17]
+[19 (61, 16) (68, 4) 18]
+[20 (64, 36) (67, 6) 19]
+[21 (70, 16) (83, 4) 17]
+[22 (70, 19) (83, 4) 21]
+[23 (74, 21) (78, 6) 22]
+[24 (85, 15) (94, 4) 17]
+[25 (85, 19) (94, 4) 24]
+[26 (96, 25) (99, 4) 17]
+[27 (97, 4) (99, 4) 26]
+[28 (102, 13) (194, 2) 0]
+[29 (110, 12) (114, 4) 28]
+[30 (110, 23) (114, 4) 29]
+[31 (116, 11) (127, 4) 28]
+[32 (116, 26) (127, 4) 31]
+[33 (123, 41) (126, 6) 32]
+[34 (129, 19) (139, 4) 28]
+[35 (129, 33) (139, 4) 34]
+[36 (132, 56) (137, 6) 35]
+[37 (141, 16) (160, 4) 28]
+[38 (141, 31) (160, 4) 37]
+[39 (150, 29) (157, 6) 38]
+[40 (152, 42) (156, 8) 39]
+[41 (162, 17) (162, 40) 28]
+[42 (162, 20) (162, 40) 41]
+[43 (164, 18) (166, 4) 28]
+[44 (164, 22) (166, 4) 43]
+[45 (168, 16) (175, 4) 28]
+[46 (168, 20) (175, 4) 45]
+[47 (171, 42) (174, 6) 46]
+[48 (177, 16) (177, 34) 28]
+[49 (177, 19) (177, 34) 48]
+[50 (179, 15) (193, 4) 28]
+[51 (179, 29) (193, 4) 50]
+[52 (196, 13) (213, 2) 0]
+[53 (198, 12) (203, 4) 52]
+[54 (198, 22) (203, 4) 53]
+[55 (205, 16) (212, 4) 52]
+[56 (205, 31) (212, 4) 55]
+[57 (207, 26) (209, 6) 56]
+[58 (217, 12) (289, 2) 0]
+[59 (223, 17) (234, 4) 58]
+[60 (223, 21) (234, 4) 59]
+[61 (236, 20) (246, 4) 58]
+[62 (236, 24) (246, 4) 61]
+[63 (242, 51) (245, 6) 62]
+[64 (248, 19) (253, 4) 58]
+[65 (248, 23) (253, 4) 64]
+[66 (255, 20) (259, 4) 58]
+[67 (255, 24) (259, 4) 66]
+[68 (261, 25) (268, 4) 58]
+[69 (261, 29) (268, 4) 68]
+[70 (270, 21) (276, 4) 58]
+[71 (270, 25) (276, 4) 70]
+[72 (278, 19) (287, 4) 58]
+[73 (278, 23) (287, 4) 72]
+[74 (291, 17) (297, 2) 0]
+[75 (292, 2) (297, 2) 74]
+[76 (299, 10) (314, 2) 0]
+[77 (299, 14) (314, 2) 76]
+[78 (306, 24) (309, 4) 77]
+
+SYMBOL TABLE :
+
+0 :
+
+1 :
+
+2 :
+
+3 :
+
+4 :
+  (7)[seed, 1, int, Random]
+
+5 :
+
+6 :
+  (17)[seedVal, 2, int, ]
+  (8)[Init, 0, function, Random]
+
+7 :
+  (12)[seedVal, 2, int, ]
+  (5)[seed, 1, int, Random]
+
+8 :
+
+9 :
+
+10 :
+  (7)[GenRandom, 0, function, Random]
+
+11 :
+  (13)[const_1, 0, int, ]
+  (29)[const_2, 0, int, ]
+  (38)[const_3, 0, int, ]
+  (47)[const_4, 0, int, ]
+  (5)[seed, 1, int, Random]
+  (22)[seed, 1, int, Random]
+
+12 :
+  (12)[seed, 1, int, Random]
+
+13 :
+
+14 :
+
+15 :
+  (18)[max, 6, int, ]
+  (7)[RndInt, 0, function, Random]
+
+16 :
+  (13)[GenRandom, 0, function, Random]
+  (27)[max, 6, int, ]
+
+17 :
+
+18 :
+
+19 :
+
+20 :
+
+21 :
+  (8)[gRnd, 0, Random, ]
+
+22 :
+
+23 :
+
+24 :
+
+25 :
+  (7)[current, 8, int, Deck]
+
+26 :
+  (9)[cards, 8, array, Deck]
+
+27 :
+
+28 :
+  (8)[Init, 0, function, Deck]
+
+29 :
+  (22)[const_5, 0, int, ]
+  (5)[cards, 8, array, Deck]
+
+30 :
+
+31 :
+
+32 :
+  (8)[Shuffle, 0, function, Deck]
+
+33 :
+  (33)[const_5, 0, int, ]
+  (20)[const_6, 0, int, ]
+  (57)[const_7, 0, int, ]
+  (10)[current, 8, int, Deck]
+  (23)[current, 8, int, Deck]
+  (37)[current, 8, int, Deck]
+  (47)[current, 8, int, Deck]
+
+34 :
+  (35)[const_7, 0, int, ]
+  (40)[const_8, 0, int, ]
+  (7)[cards, 8, array, Deck]
+  (13)[current, 8, int, Deck]
+  (25)[current, 8, int, Deck]
+
+35 :
+
+36 :
+  (22)[const_6, 0, int, ]
+  (12)[current, 8, int, Deck]
+
+37 :
+  (11)[r, 14, int, ]
+
+38 :
+  (11)[temp, 14, int, ]
+
+39 :
+  (7)[r, 14, int, ]
+  (23)[current, 8, int, Deck]
+  (16)[RndInt, 0, function, Random]
+  (11)[gRnd, 0, Random, ]
+
+40 :
+  (27)[const_7, 0, int, ]
+  (7)[current, 8, int, Deck]
+  (17)[current, 8, int, Deck]
+
+41 :
+  (7)[temp, 14, int, ]
+  (14)[cards, 8, array, Deck]
+  (20)[current, 8, int, Deck]
+
+42 :
+  (7)[cards, 8, array, Deck]
+  (24)[cards, 8, array, Deck]
+  (30)[r, 14, int, ]
+  (13)[current, 8, int, Deck]
+
+43 :
+  (18)[temp, 14, int, ]
+  (7)[cards, 8, array, Deck]
+  (13)[r, 14, int, ]
+
+44 :
+
+45 :
+
+46 :
+
+47 :
+  (7)[GetCard, 0, function, Deck]
+
+48 :
+  (9)[result, 16, int, ]
+
+49 :
+  (20)[const_5, 0, int, ]
+  (31)[const_6, 0, int, ]
+  (9)[current, 8, int, Deck]
+
+50 :
+  (5)[result, 16, int, ]
+  (14)[cards, 8, array, Deck]
+  (20)[current, 8, int, Deck]
+
+51 :
+  (25)[const_7, 0, int, ]
+  (5)[current, 8, int, Deck]
+  (15)[current, 8, int, Deck]
+
+52 :
+  (12)[result, 16, int, ]
+
+53 :
+
+54 :
+
+55 :
+
+56 :
+
+57 :
+
+58 :
+  (10)[decks, 17, Deck, BJDeck]
+
+59 :
+  (7)[numdealt, 17, int, BJDeck]
+
+60 :
+
+61 :
+  (8)[Init, 0, function, BJDeck]
+
+62 :
+  (9)[i, 19, int, ]
+
+63 :
+  (22)[const_9, 0, int, ]
+  (5)[decks, 17, Deck, BJDeck]
+
+64 :
+  (14)[const_6, 0, int, ]
+  (32)[const_7, 0, int, ]
+  (21)[const_9, 0, int, ]
+  (10)[i, 19, int, ]
+  (17)[i, 19, int, ]
+  (24)[i, 19, int, ]
+  (28)[i, 19, int, ]
+
+65 :
+  (7)[decks, 17, Deck, BJDeck]
+  (13)[i, 19, int, ]
+
+66 :
+  (7)[decks, 17, Deck, BJDeck]
+  (13)[i, 19, int, ]
+
+67 :
+
+68 :
+
+69 :
+
+70 :
+  (7)[DealCard, 0, function, BJDeck]
+
+71 :
+  (9)[c, 22, int, ]
+
+72 :
+  (9)[const_6, 0, int, ]
+  (5)[c, 22, int, ]
+
+73 :
+  (9)[numdealt, 17, int, BJDeck]
+  (23)[const_5, 0, int, ]
+  (21)[const_9, 0, int, ]
+  (34)[const_10, 0, int, ]
+
+74 :
+  (17)[const_6, 0, int, ]
+  (12)[c, 22, int, ]
+
+75 :
+  (11)[d, 23, int, ]
+
+76 :
+  (23)[const_9, 0, int, ]
+  (7)[d, 23, int, ]
+  (16)[RndInt, 0, function, Random]
+  (11)[gRnd, 0, Random, ]
+
+77 :
+  (7)[c, 22, int, ]
+  (17)[d, 23, int, ]
+  (11)[decks, 17, Deck, BJDeck]
+
+78 :
+
+79 :
+  (9)[c, 22, int, ]
+  (17)[c, 22, int, ]
+  (13)[const_11, 0, int, ]
+  (21)[const_11, 0, int, ]
+
+80 :
+  (19)[const_7, 0, int, ]
+  (14)[c, 22, int, ]
+  (22)[c, 22, int, ]
+  (26)[const_10, 0, int, ]
+
+81 :
+  (5)[numdealt, 17, int, BJDeck]
+  (16)[numdealt, 17, int, BJDeck]
+  (27)[const_7, 0, int, ]
+
+82 :
+  (12)[c, 22, int, ]
+
+83 :
+
+84 :
+
+85 :
+  (8)[Shuffle, 0, function, BJDeck]
+
+86 :
+  (9)[i, 25, int, ]
+
+87 :
+
+88 :
+  (11)[const_12, 0, string, ]
+
+89 :
+  (14)[const_6, 0, int, ]
+  (32)[const_7, 0, int, ]
+  (21)[const_9, 0, int, ]
+  (10)[i, 25, int, ]
+  (17)[i, 25, int, ]
+  (24)[i, 25, int, ]
+  (28)[i, 25, int, ]
+
+90 :
+  (7)[decks, 17, Deck, BJDeck]
+  (13)[i, 25, int, ]
+
+91 :
+
+92 :
+  (5)[numdealt, 17, int, BJDeck]
+  (16)[const_6, 0, int, ]
+
+93 :
+  (11)[const_13, 0, string, ]
+
+94 :
+
+95 :
+
+96 :
+  (7)[NumCardsRemaining, 0, function, BJDeck]
+
+97 :
+
+98 :
+  (19)[numdealt, 17, int, BJDeck]
+  (14)[const_5, 0, int, ]
+  (12)[const_9, 0, int, ]
+
+99 :
+
+100 :
+
+101 :
+
+102 :
+
+103 :
+  (7)[total, 28, int, Player]
+
+104 :
+  (7)[aces, 28, int, Player]
+
+105 :
+  (7)[numcards, 28, int, Player]
+
+106 :
+  (7)[bet, 28, int, Player]
+
+107 :
+  (7)[money, 28, int, Player]
+
+108 :
+  (10)[name, 28, string, Player]
+
+109 :
+
+110 :
+  (17)[num, 29, int, ]
+  (8)[Init, 0, function, Player]
+
+111 :
+  (13)[const_14, 0, int, ]
+  (5)[money, 28, int, Player]
+
+112 :
+  (11)[const_15, 0, string, ]
+  (48)[const_16, 0, string, ]
+  (43)[num, 29, int, ]
+
+113 :
+  (5)[name, 28, string, Player]
+
+114 :
+
+115 :
+
+116 :
+  (8)[Hit, 0, function, Player]
+  (19)[deck, 31, BJDeck, ]
+
+117 :
+  (9)[card, 32, int, ]
+
+118 :
+  (17)[DealCard, 0, function, BJDeck]
+  (12)[deck, 31, BJDeck, ]
+  (5)[card, 32, int, ]
+
+119 :
+  (17)[const_17, 0, string, ]
+  (40)[const_18, 0, string, ]
+  (34)[card, 32, int, ]
+  (11)[name, 28, string, Player]
+
+120 :
+  (5)[total, 28, int, Player]
+  (13)[total, 28, int, Player]
+  (21)[card, 32, int, ]
+
+121 :
+  (5)[numcards, 28, int, Player]
+  (16)[numcards, 28, int, Player]
+  (27)[const_7, 0, int, ]
+
+122 :
+  (35)[const_7, 0, int, ]
+  (17)[const_10, 0, int, ]
+  (9)[card, 32, int, ]
+  (21)[aces, 28, int, Player]
+  (28)[aces, 28, int, Player]
+
+123 :
+  (36)[const_6, 0, int, ]
+  (21)[const_19, 0, int, ]
+  (13)[total, 28, int, Player]
+  (29)[aces, 28, int, Player]
+
+124 :
+  (23)[const_11, 0, int, ]
+  (7)[total, 28, int, Player]
+  (15)[total, 28, int, Player]
+
+125 :
+  (21)[const_7, 0, int, ]
+  (7)[aces, 28, int, Player]
+  (14)[aces, 28, int, Player]
+
+126 :
+
+127 :
+
+128 :
+
+129 :
+  (8)[DoubleDown, 0, function, Player]
+  (26)[deck, 34, BJDeck, ]
+
+130 :
+  (9)[result, 35, int, ]
+
+131 :
+  (36)[const_10, 0, int, ]
+  (48)[const_20, 0, bool, ]
+  (19)[const_11, 0, int, ]
+  (10)[total, 28, int, Player]
+  (27)[total, 28, int, Player]
+
+132 :
+  (20)[const_21, 0, string, ]
+
+133 :
+  (7)[bet, 28, int, Player]
+  (13)[bet, 28, int, Player]
+  (19)[const_22, 0, int, ]
+
+134 :
+  (7)[Hit, 0, function, Player]
+  (11)[deck, 34, BJDeck, ]
+
+135 :
+  (19)[const_23, 0, string, ]
+  (46)[const_18, 0, string, ]
+  (39)[total, 28, int, Player]
+  (13)[name, 28, string, Player]
+
+136 :
+  (14)[const_24, 0, bool, ]
+
+137 :
+
+138 :
+  (12)[const_20, 0, bool, ]
+
+139 :
+
+140 :
+
+141 :
+  (8)[TakeTurn, 0, function, Player]
+  (24)[deck, 37, BJDeck, ]
+
+142 :
+  (10)[stillGoing, 38, bool, ]
+
+143 :
+
+144 :
+  (11)[const_25, 0, string, ]
+  (23)[const_26, 0, string, ]
+  (17)[name, 28, string, Player]
+
+145 :
+  (13)[const_6, 0, int, ]
+  (5)[total, 28, int, Player]
+
+146 :
+  (12)[const_6, 0, int, ]
+  (5)[aces, 28, int, Player]
+
+147 :
+  (5)[numcards, 28, int, Player]
+  (16)[const_6, 0, int, ]
+
+148 :
+  (5)[Hit, 0, function, Player]
+  (9)[deck, 37, BJDeck, ]
+
+149 :
+  (5)[Hit, 0, function, Player]
+  (9)[deck, 37, BJDeck, ]
+
+150 :
+  (10)[DoubleDown, 0, function, Player]
+  (21)[deck, 37, BJDeck, ]
+
+151 :
+  (20)[const_24, 0, bool, ]
+  (7)[stillGoing, 38, bool, ]
+
+152 :
+  (23)[const_19, 0, int, ]
+  (14)[total, 28, int, Player]
+  (29)[stillGoing, 38, bool, ]
+
+153 :
+  (21)[const_23, 0, string, ]
+  (48)[const_18, 0, string, ]
+  (41)[total, 28, int, Player]
+  (15)[name, 28, string, Player]
+
+154 :
+  (33)[const_27, 0, string, ]
+  (9)[stillGoing, 38, bool, ]
+
+155 :
+  (25)[Hit, 0, function, Player]
+  (29)[deck, 37, BJDeck, ]
+  (13)[stillGoing, 38, bool, ]
+
+156 :
+
+157 :
+
+158 :
+  (33)[const_28, 0, string, ]
+  (17)[const_19, 0, int, ]
+  (64)[const_29, 0, string, ]
+  (9)[total, 28, int, Player]
+  (57)[total, 28, int, Player]
+  (27)[name, 28, string, Player]
+
+159 :
+  (22)[const_30, 0, string, ]
+  (43)[const_18, 0, string, ]
+  (36)[total, 28, int, Player]
+  (16)[name, 28, string, Player]
+
+160 :
+
+161 :
+
+162 :
+  (36)[const_6, 0, int, ]
+  (28)[money, 28, int, Player]
+  (8)[HasMoney, 0, function, Player]
+
+163 :
+
+164 :
+  (8)[PrintMoney, 0, function, Player]
+
+165 :
+  (17)[const_31, 0, string, ]
+  (40)[const_18, 0, string, ]
+  (33)[money, 28, int, Player]
+  (11)[name, 28, string, Player]
+
+166 :
+
+167 :
+
+168 :
+  (8)[PlaceBet, 0, function, Player]
+
+169 :
+  (11)[const_6, 0, int, ]
+  (5)[bet, 28, int, Player]
+
+170 :
+  (5)[PrintMoney, 0, function, Player]
+
+171 :
+  (20)[const_6, 0, int, ]
+  (13)[bet, 28, int, Player]
+  (27)[bet, 28, int, Player]
+  (33)[money, 28, int, Player]
+
+172 :
+  (13)[const_32, 0, string, ]
+
+173 :
+  (7)[bet, 28, int, Player]
+
+174 :
+
+175 :
+
+176 :
+
+177 :
+  (27)[total, 28, int, Player]
+  (7)[GetTotal, 0, function, Player]
+
+178 :
+
+179 :
+  (8)[Resolve, 0, function, Player]
+  (20)[dealer, 50, int, ]
+
+180 :
+  (18)[lose, 51, int, ]
+  (9)[win, 51, int, ]
+
+181 :
+  (14)[lose, 51, int, ]
+  (11)[const_6, 0, int, ]
+  (21)[const_6, 0, int, ]
+  (5)[win, 51, int, ]
+
+182 :
+  (27)[numcards, 28, int, Player]
+  (39)[const_22, 0, int, ]
+  (49)[const_22, 0, int, ]
+  (19)[const_19, 0, int, ]
+  (43)[win, 51, int, ]
+  (10)[total, 28, int, Player]
+
+183 :
+  (26)[lose, 51, int, ]
+  (33)[const_7, 0, int, ]
+  (22)[const_19, 0, int, ]
+  (14)[total, 28, int, Player]
+
+184 :
+  (33)[const_7, 0, int, ]
+  (23)[const_19, 0, int, ]
+  (27)[win, 51, int, ]
+  (14)[dealer, 50, int, ]
+
+185 :
+  (36)[const_7, 0, int, ]
+  (30)[win, 51, int, ]
+  (14)[total, 28, int, Player]
+  (22)[dealer, 50, int, ]
+
+186 :
+  (30)[lose, 51, int, ]
+  (37)[const_7, 0, int, ]
+  (23)[total, 28, int, Player]
+  (14)[dealer, 50, int, ]
+
+187 :
+  (16)[const_7, 0, int, ]
+  (46)[bet, 28, int, Player]
+  (31)[const_33, 0, string, ]
+  (51)[const_18, 0, string, ]
+  (9)[win, 51, int, ]
+  (25)[name, 28, string, Player]
+
+188 :
+  (14)[lose, 51, int, ]
+  (22)[const_7, 0, int, ]
+  (53)[bet, 28, int, Player]
+  (37)[const_34, 0, string, ]
+  (58)[const_18, 0, string, ]
+  (31)[name, 28, string, Player]
+
+189 :
+  (22)[const_35, 0, string, ]
+  (16)[name, 28, string, Player]
+
+190 :
+  (17)[bet, 28, int, Player]
+  (5)[win, 51, int, ]
+  (11)[win, 51, int, ]
+
+191 :
+  (5)[lose, 51, int, ]
+  (12)[lose, 51, int, ]
+  (19)[bet, 28, int, Player]
+
+192 :
+  (27)[lose, 51, int, ]
+  (21)[win, 51, int, ]
+  (5)[money, 28, int, Player]
+  (13)[money, 28, int, Player]
+
+193 :
+
+194 :
+
+195 :
+
+196 :
+
+197 :
+
+198 :
+  (8)[Init, 0, function, Dealer]
+  (17)[id, 53, int, ]
+
+199 :
+  (13)[const_6, 0, int, ]
+
+200 :
+  (12)[const_6, 0, int, ]
+
+201 :
+  (16)[const_6, 0, int, ]
+
+202 :
+  (12)[const_36, 0, string, ]
+
+203 :
+
+204 :
+
+205 :
+  (8)[TakeTurn, 0, function, Dealer]
+  (24)[deck, 55, BJDeck, ]
+
+206 :
+  (11)[const_25, 0, string, ]
+  (23)[const_26, 0, string, ]
+
+207 :
+  (21)[const_37, 0, int, ]
+
+208 :
+  (11)[deck, 55, BJDeck, ]
+
+209 :
+
+210 :
+  (33)[const_28, 0, string, ]
+  (17)[const_19, 0, int, ]
+  (64)[const_29, 0, string, ]
+
+211 :
+  (22)[const_30, 0, string, ]
+  (43)[const_18, 0, string, ]
+
+212 :
+
+213 :
+
+214 :
+
+215 :
+
+216 :
+
+217 :
+
+218 :
+  (12)[players, 58, Player, House]
+
+219 :
+  (10)[dealer, 58, Dealer, House]
+
+220 :
+  (10)[deck, 58, BJDeck, House]
+
+221 :
+
+222 :
+
+223 :
+  (8)[SetupGame, 0, function, House]
+
+224 :
+  (11)[const_38, 0, string, ]
+
+225 :
+  (11)[const_39, 0, string, ]
+
+226 :
+  (5)[gRnd, 0, Random, ]
+
+227 :
+  (11)[const_40, 0, string, ]
+
+228 :
+  (5)[gRnd, 0, Random, ]
+  (10)[Init, 0, function, Random]
+
+229 :
+
+230 :
+  (5)[deck, 58, BJDeck, House]
+
+231 :
+  (5)[dealer, 58, Dealer, House]
+
+232 :
+  (10)[Init, 0, function, BJDeck]
+  (5)[deck, 58, BJDeck, House]
+
+233 :
+  (10)[Shuffle, 0, function, BJDeck]
+  (5)[deck, 58, BJDeck, House]
+
+234 :
+
+235 :
+
+236 :
+  (8)[SetupPlayers, 0, function, House]
+
+237 :
+  (9)[i, 62, int, ]
+
+238 :
+  (9)[numPlayers, 62, int, ]
+
+239 :
+  (11)[const_41, 0, string, ]
+
+240 :
+  (5)[numPlayers, 62, int, ]
+
+241 :
+  (24)[numPlayers, 62, int, ]
+  (5)[players, 58, Player, House]
+
+242 :
+  (29)[length, 0, function, void]
+  (14)[const_6, 0, int, ]
+  (47)[const_7, 0, int, ]
+  (10)[i, 62, int, ]
+  (17)[i, 62, int, ]
+  (39)[i, 62, int, ]
+  (43)[i, 62, int, ]
+  (21)[players, 58, Player, House]
+
+243 :
+  (15)[i, 62, int, ]
+  (7)[players, 58, Player, House]
+
+244 :
+  (25)[const_7, 0, int, ]
+  (15)[i, 62, int, ]
+  (23)[i, 62, int, ]
+  (7)[players, 58, Player, House]
+
+245 :
+
+246 :
+
+247 :
+
+248 :
+  (8)[TakeAllBets, 0, function, House]
+
+249 :
+  (9)[i, 65, int, ]
+
+250 :
+  (11)[const_42, 0, string, ]
+
+251 :
+  (14)[const_6, 0, int, ]
+  (47)[const_7, 0, int, ]
+  (10)[i, 65, int, ]
+  (17)[i, 65, int, ]
+  (39)[i, 65, int, ]
+  (43)[i, 65, int, ]
+  (21)[players, 58, Player, House]
+
+252 :
+  (19)[i, 65, int, ]
+  (42)[i, 65, int, ]
+  (11)[players, 58, Player, House]
+  (34)[players, 58, Player, House]
+
+253 :
+
+254 :
+
+255 :
+  (8)[TakeAllTurns, 0, function, House]
+
+256 :
+  (9)[i, 67, int, ]
+
+257 :
+  (14)[const_6, 0, int, ]
+  (47)[const_7, 0, int, ]
+  (10)[i, 67, int, ]
+  (17)[i, 67, int, ]
+  (39)[i, 67, int, ]
+  (43)[i, 67, int, ]
+  (21)[players, 58, Player, House]
+
+258 :
+  (19)[i, 67, int, ]
+  (42)[i, 67, int, ]
+  (11)[players, 58, Player, House]
+  (34)[players, 58, Player, House]
+  (54)[deck, 58, BJDeck, House]
+
+259 :
+
+260 :
+
+261 :
+  (8)[ResolveAllPlayers, 0, function, House]
+
+262 :
+  (9)[i, 69, int, ]
+
+263 :
+
+264 :
+  (11)[const_43, 0, string, ]
+
+265 :
+  (14)[const_6, 0, int, ]
+  (47)[const_7, 0, int, ]
+  (10)[i, 69, int, ]
+  (17)[i, 69, int, ]
+  (39)[i, 69, int, ]
+  (43)[i, 69, int, ]
+  (21)[players, 58, Player, House]
+
+266 :
+  (19)[i, 69, int, ]
+  (11)[players, 58, Player, House]
+
+267 :
+  (17)[i, 69, int, ]
+  (9)[players, 58, Player, House]
+  (35)[GetTotal, 0, function, Player]
+  (28)[dealer, 58, Dealer, House]
+
+268 :
+
+269 :
+
+270 :
+  (8)[PrintAllMoney, 0, function, House]
+
+271 :
+  (9)[i, 71, int, ]
+
+272 :
+
+273 :
+  (14)[const_6, 0, int, ]
+  (47)[const_7, 0, int, ]
+  (10)[i, 71, int, ]
+  (17)[i, 71, int, ]
+  (39)[i, 71, int, ]
+  (43)[i, 71, int, ]
+  (21)[players, 58, Player, House]
+
+274 :
+  (15)[i, 71, int, ]
+  (7)[players, 58, Player, House]
+
+275 :
+
+276 :
+
+277 :
+
+278 :
+  (8)[PlayOneGame, 0, function, House]
+
+279 :
+  (14)[NumCardsRemaining, 0, function, BJDeck]
+  (45)[Shuffle, 0, function, BJDeck]
+  (36)[const_44, 0, int, ]
+  (9)[deck, 58, BJDeck, House]
+  (40)[deck, 58, BJDeck, House]
+
+280 :
+  (5)[TakeAllBets, 0, function, House]
+
+281 :
+  (11)[const_45, 0, string, ]
+
+282 :
+  (17)[const_6, 0, int, ]
+  (12)[Init, 0, function, Dealer]
+  (5)[dealer, 58, Dealer, House]
+
+283 :
+  (12)[Hit, 0, function, Player]
+  (16)[deck, 58, BJDeck, House]
+  (5)[dealer, 58, Dealer, House]
+
+284 :
+  (5)[TakeAllTurns, 0, function, House]
+
+285 :
+  (12)[TakeTurn, 0, function, Dealer]
+  (21)[deck, 58, BJDeck, House]
+  (5)[dealer, 58, Dealer, House]
+
+286 :
+  (5)[ResolveAllPlayers, 0, function, House]
+
+287 :
+
+288 :
+
+289 :
+
+290 :
+
+291 :
+  (24)[prompt, 74, string, ]
+  (6)[GetYesOrNo, 0, function, void]
+
+292 :
+
+293 :
+  (11)[answer, 75, string, ]
+
+294 :
+  (10)[prompt, 74, string, ]
+  (18)[const_46, 0, string, ]
+
+295 :
+  (4)[answer, 75, string, ]
+
+296 :
+  (12)[answer, 75, string, ]
+  (29)[answer, 75, string, ]
+  (22)[const_47, 0, string, ]
+  (39)[const_48, 0, string, ]
+
+297 :
+
+298 :
+
+299 :
+  (6)[main, 0, function, void]
+
+300 :
+  (8)[keepPlaying, 77, bool, ]
+
+301 :
+  (9)[house, 77, House, ]
+
+302 :
+  (3)[keepPlaying, 77, bool, ]
+  (17)[const_24, 0, bool, ]
+
+303 :
+  (3)[house, 77, House, ]
+
+304 :
+  (9)[SetupGame, 0, function, House]
+  (3)[house, 77, House, ]
+
+305 :
+  (3)[house, 77, House, ]
+  (9)[SetupPlayers, 0, function, House]
+
+306 :
+  (10)[keepPlaying, 77, bool, ]
+
+307 :
+  (11)[PlayOneGame, 0, function, House]
+  (5)[house, 77, House, ]
+
+308 :
+  (5)[keepPlaying, 77, bool, ]
+  (30)[const_49, 0, string, ]
+  (19)[GetYesOrNo, 0, function, void]
+
+309 :
+
+310 :
+  (9)[PrintAllMoney, 0, function, House]
+  (3)[house, 77, House, ]
+
+311 :
+  (9)[const_50, 0, string, ]
+
+312 :
+  (9)[const_51, 0, string, ]
+
+313 :
+  (9)[const_52, 0, string, ]
+
+314 :
+
+
+SYMBOL TABLE [name, scope_id, type, is_field_type, locations * (line, col)]
+[length, 0, function, (242, 29) ]
+[lose, 51, int, (180, 18) (181, 14) (183, 26) (186, 30) (188, 14) (191, 5) (191, 12) (192, 27) ]
+[TakeAllBets, 0, function, (248, 8) (280, 5) ]
+[numdealt, 17, int, BJDeck, (59, 7) (73, 9) (81, 5) (81, 16) (92, 5) (98, 19) ]
+[temp, 14, int, (38, 11) (41, 7) (43, 18) ]
+[numPlayers, 62, int, (238, 9) (240, 5) (241, 24) ]
+[numcards, 28, int, Player, (105, 7) (121, 5) (121, 16) (147, 5) (182, 27) ]
+[PlayOneGame, 0, function, (278, 8) (307, 11) ]
+[answer, 75, string, (293, 11) (295, 4) (296, 12) (296, 29) ]
+[NumCardsRemaining, 0, function, (96, 7) (279, 14) ]
+[GetCard, 0, function, (47, 7) ]
+[result, 35, int, (130, 9) ]
+[result, 16, int, (48, 9) (50, 5) (52, 12) ]
+[prompt, 74, string, (291, 24) (294, 10) ]
+[GenRandom, 0, function, (10, 7) (16, 13) ]
+[PrintAllMoney, 0, function, (270, 8) (310, 9) ]
+[const_1, 0, int, (11, 13) ]
+[SetupGame, 0, function, (223, 8) (304, 9) ]
+[const_2, 0, int, (11, 29) ]
+[const_3, 0, int, (11, 38) ]
+[ResolveAllPlayers, 0, function, (261, 8) (286, 5) ]
+[const_4, 0, int, (11, 47) ]
+[const_5, 0, int, (29, 22) (33, 33) (49, 20) (73, 23) (98, 14) ]
+[const_6, 0, int, (33, 20) (36, 22) (49, 31) (64, 14) (72, 9) (74, 17) (89, 14) (92, 16) (123, 36) (145, 13) (146, 12) (147, 16) (162, 36) (169, 11) (171, 20) (181, 11) (181, 21) (199, 13) (200, 12) (201, 16) (242, 14) (251, 14) (257, 14) (265, 14) (273, 14) (282, 17) ]
+[const_7, 0, int, (33, 57) (34, 35) (40, 27) (51, 25) (64, 32) (80, 19) (81, 27) (89, 32) (121, 27) (122, 35) (125, 21) (183, 33) (184, 33) (185, 36) (186, 37) (187, 16) (188, 22) (242, 47) (244, 25) (251, 47) (257, 47) (265, 47) (273, 47) ]
+[const_8, 0, int, (34, 40) ]
+[const_9, 0, int, (63, 22) (64, 21) (73, 21) (76, 23) (89, 21) (98, 12) ]
+[seedVal, 2, int, (6, 17) (7, 12) ]
+[Hit, 0, function, (116, 8) (134, 7) (148, 5) (149, 5) (155, 25) (283, 12) ]
+[Shuffle, 0, function, (85, 8) (233, 10) (279, 45) ]
+[Shuffle, 0, function, (32, 8) ]
+[keepPlaying, 77, bool, (300, 8) (302, 3) (306, 10) (308, 5) ]
+[c, 22, int, (71, 9) (72, 5) (74, 12) (77, 7) (79, 9) (79, 17) (80, 14) (80, 22) (82, 12) ]
+[d, 23, int, (75, 11) (76, 7) (77, 17) ]
+[decks, 17, Deck, BJDeck, (58, 10) (63, 5) (65, 7) (66, 7) (77, 11) (90, 7) ]
+[cards, 8, array, Deck, (26, 9) (29, 5) (34, 7) (41, 14) (42, 7) (42, 24) (43, 7) (50, 14) ]
+[Resolve, 0, function, (179, 8) ]
+[bet, 28, int, Player, (106, 7) (133, 7) (133, 13) (169, 5) (171, 13) (171, 27) (173, 7) (187, 46) (188, 53) (190, 17) (191, 19) ]
 [NULL, 0, void, ]
-[i, 2, int, (6, 9) (13, 5) (14, 12) (18, 2) (18, 6) ]
-[n, 1, int, (26, 8) (30, 7) (31, 11) (32, 21) (32, 37) ]
-[const_10, 0, string, (34, 9) ]
-[f0, 2, int, (7, 9) (11, 5) (15, 7) (16, 2) ]
-[f1, 2, int, (8, 9) (12, 5) (15, 12) (16, 7) (17, 2) ]
-[f2, 2, int, (9, 9) (15, 2) (17, 7) (20, 12) ]
-[base, 1, int, (1, 13) (3, 8) (4, 9) (14, 17) ]
-[main, 0, function, ]
+[i, 71, int, (271, 9) (273, 10) (273, 17) (273, 39) (273, 43) (274, 15) ]
+[i, 69, int, (262, 9) (265, 10) (265, 17) (265, 39) (265, 43) (266, 19) (267, 17) ]
+[i, 67, int, (256, 9) (257, 10) (257, 17) (257, 39) (257, 43) (258, 19) (258, 42) ]
+[i, 65, int, (249, 9) (251, 10) (251, 17) (251, 39) (251, 43) (252, 19) (252, 42) ]
+[i, 62, int, (237, 9) (242, 10) (242, 17) (242, 39) (242, 43) (243, 15) (244, 15) (244, 23) ]
+[i, 25, int, (86, 9) (89, 10) (89, 17) (89, 24) (89, 28) (90, 13) ]
+[i, 19, int, (62, 9) (64, 10) (64, 17) (64, 24) (64, 28) (65, 13) (66, 13) ]
+[const_10, 0, int, (73, 34) (80, 26) (122, 17) (131, 36) ]
+[const_20, 0, bool, (131, 48) (138, 12) ]
+[const_11, 0, int, (79, 13) (79, 21) (124, 23) (131, 19) ]
+[const_30, 0, string, (159, 22) (211, 22) ]
+[const_21, 0, string, (132, 20) ]
+[const_12, 0, string, (88, 11) ]
+[const_40, 0, string, (227, 11) ]
+[const_31, 0, string, (165, 17) ]
+[const_22, 0, int, (133, 19) (182, 39) (182, 49) ]
+[const_13, 0, string, (93, 11) ]
+[r, 14, int, (37, 11) (39, 7) (42, 30) (43, 13) ]
+[const_50, 0, string, (311, 9) ]
+[const_41, 0, string, (239, 11) ]
+[const_32, 0, string, (172, 13) ]
+[const_23, 0, string, (135, 19) (153, 21) ]
+[const_14, 0, int, (111, 13) ]
+[max, 6, int, (15, 18) (16, 27) ]
+[const_51, 0, string, (312, 9) ]
+[const_42, 0, string, (250, 11) ]
+[const_33, 0, string, (187, 31) ]
+[const_24, 0, bool, (136, 14) (151, 20) (302, 17) ]
+[const_15, 0, string, (112, 11) ]
+[const_52, 0, string, (313, 9) ]
+[const_43, 0, string, (264, 11) ]
+[const_34, 0, string, (188, 37) ]
+[const_25, 0, string, (144, 11) (206, 11) ]
+[const_16, 0, string, (112, 48) ]
+[const_44, 0, int, (279, 36) ]
+[const_35, 0, string, (189, 22) ]
+[const_26, 0, string, (144, 23) (206, 23) ]
+[const_17, 0, string, (119, 17) ]
+[const_45, 0, string, (281, 11) ]
+[const_36, 0, string, (202, 12) ]
+[const_27, 0, string, (154, 33) ]
+[const_18, 0, string, (119, 40) (135, 46) (153, 48) (159, 43) (165, 40) (187, 51) (188, 58) (211, 43) ]
+[DealCard, 0, function, (70, 7) (118, 17) ]
+[const_46, 0, string, (294, 18) ]
+[const_37, 0, int, (207, 21) ]
+[const_28, 0, string, (158, 33) (210, 33) ]
+[const_19, 0, int, (123, 21) (152, 23) (158, 17) (182, 19) (183, 22) (184, 23) (210, 17) ]
+[const_47, 0, string, (296, 22) ]
+[const_38, 0, string, (224, 11) ]
+[const_29, 0, string, (158, 64) (210, 64) ]
+[const_48, 0, string, (296, 39) ]
+[const_39, 0, string, (225, 11) ]
+[const_49, 0, string, (308, 30) ]
+[win, 51, int, (180, 9) (181, 5) (182, 43) (184, 27) (185, 30) (187, 9) (190, 5) (190, 11) (192, 21) ]
+[num, 29, int, (110, 17) (112, 43) ]
+[house, 77, House, (301, 9) (303, 3) (304, 3) (305, 3) (307, 5) (310, 3) ]
+[total, 28, int, Player, (103, 7) (120, 5) (120, 13) (123, 13) (124, 7) (124, 15) (131, 10) (131, 27) (135, 39) (145, 5) (152, 14) (153, 41) (158, 9) (158, 57) (159, 36) (177, 27) (182, 10) (183, 14) (185, 14) (186, 23) ]
+[money, 28, int, Player, (107, 7) (111, 5) (162, 28) (165, 33) (171, 33) (192, 5) (192, 13) ]
+[GetYesOrNo, 0, function, (291, 6) (308, 19) ]
+[players, 58, Player, House, (218, 12) (241, 5) (242, 21) (243, 7) (244, 7) (251, 21) (252, 11) (252, 34) (257, 21) (258, 11) (258, 34) (265, 21) (266, 11) (267, 9) (273, 21) (274, 7) ]
+[PlaceBet, 0, function, (168, 8) ]
+[current, 8, int, Deck, (25, 7) (33, 10) (33, 23) (33, 37) (33, 47) (34, 13) (34, 25) (36, 12) (39, 23) (40, 7) (40, 17) (41, 20) (42, 13) (49, 9) (50, 20) (51, 5) (51, 15) ]
+[TakeAllTurns, 0, function, (255, 8) (284, 5) ]
+[DoubleDown, 0, function, (129, 8) (150, 10) ]
+[RndInt, 0, function, (15, 7) (39, 16) (76, 16) ]
+[GetTotal, 0, function, (177, 7) (267, 35) ]
+[HasMoney, 0, function, (162, 8) ]
+[TakeTurn, 0, function, (205, 8) (285, 12) ]
+[TakeTurn, 0, function, (141, 8) ]
+[gRnd, 0, Random, (21, 8) (39, 11) (76, 11) (226, 5) (228, 5) ]
+[Init, 0, function, (198, 8) (282, 12) ]
+[Init, 0, function, (110, 8) ]
+[Init, 0, function, (61, 8) (232, 10) ]
+[Init, 0, function, (28, 8) ]
+[Init, 0, function, (6, 8) (228, 10) ]
+[deck, 58, BJDeck, House, (220, 10) (230, 5) (232, 5) (233, 5) (258, 54) (279, 9) (279, 40) (283, 16) (285, 21) ]
+[deck, 55, BJDeck, (205, 24) (208, 11) ]
+[deck, 37, BJDeck, (141, 24) (148, 9) (149, 9) (150, 21) (155, 29) ]
+[deck, 34, BJDeck, (129, 26) (134, 11) ]
+[deck, 31, BJDeck, (116, 19) (118, 12) ]
+[dealer, 58, Dealer, House, (219, 10) (231, 5) (267, 28) (282, 5) (283, 5) (285, 5) ]
+[dealer, 50, int, (179, 20) (184, 14) (185, 22) (186, 14) ]
+[card, 32, int, (117, 9) (118, 5) (119, 34) (120, 21) (122, 9) ]
+[aces, 28, int, Player, (104, 7) (122, 21) (122, 28) (123, 29) (125, 7) (125, 14) (146, 5) ]
+[PrintMoney, 0, function, (164, 8) (170, 5) ]
+[id, 53, int, (198, 17) ]
+[name, 28, string, Player, (108, 10) (113, 5) (119, 11) (135, 13) (144, 17) (153, 15) (158, 27) (159, 16) (165, 11) (187, 25) (188, 31) (189, 16) ]
+[seed, 1, int, Random, (4, 7) (7, 5) (11, 5) (11, 22) (12, 12) ]
+[stillGoing, 38, bool, (142, 10) (151, 7) (152, 29) (154, 9) (155, 13) ]
+[main, 0, function, (299, 6) ]
+[SetupPlayers, 0, function, (236, 8) (305, 9) ]

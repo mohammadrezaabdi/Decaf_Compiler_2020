@@ -7,6 +7,7 @@
   int T_ID_lineo;
   int T_ID_colno;
   int pass = 1;
+  int num_of_input_file_lines;
   #define PASS_NUM 3
   #define LEVEL_1 1
   #define LEVEL_2 2
@@ -40,7 +41,7 @@ bool          {colno += yyleng; yylval.stringLiteral=yytext; return T_BOOL;}
 string        {colno += yyleng; yylval.stringLiteral=yytext; return T_STRING;}
 class         {colno += yyleng; return T_CLASS;}
 interface     {colno += yyleng; return T_INTERFACE;}
-null          {colno += yyleng; return T_NULL;}
+null          {T_ID_lineo = lineno; T_ID_colno = colno; colno += yyleng; return T_NULL;}
 this          {colno += yyleng; return T_THIS;}
 extends       {colno += yyleng; return T_EXTENDS;}
 implements    {colno += yyleng; return T_IMPLEMENTS;}
@@ -78,8 +79,8 @@ ReadLine      {colno += yyleng; return T_READLINE;}
 "]"           {colno += yyleng; return yytext[0];}
 "("           {colno += yyleng; return yytext[0];}
 ")"           {colno += yyleng; return yytext[0];}
-"{"           {colno += yyleng; make_scope(); return yytext[0];}
-"}"           {colno += yyleng; hide_scope(); return yytext[0];}
+"{"           {colno += yyleng; return yytext[0];}
+"}"           {colno += yyleng; return yytext[0];}
 {BOOL_PAT}    {T_ID_lineo = lineno; T_ID_colno = colno; colno += yyleng; yylval.booleanLiteral = (bool) (strcmp(yytext, (char *) "true") == 0); return T_BOOLCONSTANT;}
 {ID_PAT}	    {
                 if (yyleng > 31) {
@@ -103,7 +104,7 @@ ReadLine      {colno += yyleng; return T_READLINE;}
 			        }
 <<EOF>>       {
                 // multi-pass parsing levels:
-                // level 1 : find out just types & constants & builting raw class
+                // level 1 : find out just types & constants & builting raw class & creating scopes
                 // level 2 : making function list & setting classes hieracy
                 // level 3 : making symbol table
                 // level 4 : tac generation
@@ -112,15 +113,21 @@ ReadLine      {colno += yyleng; return T_READLINE;}
                     // setting hieracy of classes
                     finalize_fields_and_vtable_of_classes();
                     // starting hash_table
+                    init_scope_list();
                     init_hash_table();
                   }
                   yyin = fopen( input_file_path, "r" );
                   yy_switch_to_buffer( yy_create_buffer( yyin, YY_BUF_SIZE ));
+                  num_of_input_file_lines = lineno;
                   lineno = 1;
                   colno = 1;
                   pass++;
                 }
                 else{
+                  if(pass == LEVEL_3){
+                    scope_list->end = create_loc(lineno, colno);
+                    adapt_symbol_table_to_tac(lineno);
+                  }
                   yyterminate();
                 }
               }

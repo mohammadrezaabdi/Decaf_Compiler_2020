@@ -72,6 +72,9 @@ void add_to_type_list(char *name) {
 }
 
 constant *find_const(int type, int ival, double dval, char *sval, bool bval) {
+    if(type == VOID_TYPE){
+        return const_list->val;
+    }
     const_entry *temp = const_list;
     constant *candidate = NULL;
     while ((temp != NULL)) {
@@ -139,6 +142,7 @@ constant *create_const(int type, int ival, double dval, char *sval, bool bval) {
 
 func *find_func(char *name, int owner_class_type) {
     func_entry *temp = func_list;
+    owner_class_type = (owner_class_type < 0) ? 0 : owner_class_type;
     while ((temp != NULL) &&
            (strcmp(temp->val->name, name) != 0 ||
             temp->val->owner_class_type != owner_class_type)) {
@@ -508,12 +512,12 @@ void class_up_casting(object *from_class, char *to_class) { // both up-casting &
     }
 }
 
-bool is_your_father (char * father_name, char * child_name){
-    class * child = find_class(child_name);
-    class * father = find_class(father_name);
-    kid * temp = father->kids;
+bool is_your_father(char *father_name, char *child_name) {
+    class *child = find_class(child_name);
+    class *father = find_class(father_name);
+    kid *temp = father->kids;
     for (int i = 0; i < father->num_of_kids; ++i) {
-        if (temp->type == child->type){
+        if (temp->type == child->type) {
             return true;
         }
         temp = temp->next;
@@ -522,7 +526,7 @@ bool is_your_father (char * father_name, char * child_name){
 }
 
 void class_down_casting(object *father_obj, char *child_class_name) {
-    if(is_your_father(type_list[father_obj->type], child_class_name)) {
+    if (is_your_father(type_list[father_obj->type], child_class_name)) {
         vtable *final_vtable = find_class(child_class_name)->v_table;
         father_obj->v_table = create_vtable();
         father_obj->v_table->list = final_vtable->list;

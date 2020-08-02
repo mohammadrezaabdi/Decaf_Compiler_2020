@@ -86,7 +86,7 @@ variable        :     type T_ID {
                                       }
                                       break;
                                     case LEVEL_3:
-                                      if (class_decl && !func_scope && curr_scope == 1){
+                                      if (class_decl && !func_scope){
                                         insert_field(get_element($2, 0, delim), T_ID_lineo, T_ID_colno, get_element($1, 0, delim), get_num_of_pair_braces($1), curr_class->name);
                                       } else if (func_decl){
                                         insert_param(get_element($2, 0, delim), T_ID_lineo, T_ID_colno, get_element($1, 0, delim), get_num_of_pair_braces($1));
@@ -115,7 +115,9 @@ functionDecl    :     type T_ID {
                                       }
                                       break;
                                     case LEVEL_3:
+                                      move_in_new_scope(lineno, colno);
                                       curr_func = find_func(get_element($2, 0, delim), get_type_id(curr_class->name));
+                                      reference_to_function(curr_func->name, T_ID_lineo, T_ID_colno, (curr_class!=NULL) ? curr_class->name : NULL);
                                       break;
                                   }
                                 }
@@ -125,10 +127,18 @@ functionDecl    :     type T_ID {
                                           case LEVEL_2:
                                             curr_func = NULL;
                                             break;
+                                          case LEVEL_3:
+                                            curr_func = NULL;
+                                            break;
                                         }
                                       }
                       stmtBlock       {
                                         func_scope = false;
+                                          switch(pass){
+                                            case LEVEL_3:
+                                              move_out_from_scope(lineno, colno);
+                                              break;
+                                          }
                                       }
 
                 |     T_VOID T_ID {
@@ -142,7 +152,9 @@ functionDecl    :     type T_ID {
                                         }
                                         break;
                                       case LEVEL_3:
+                                        move_in_new_scope(lineno, colno);
                                         curr_func = find_func(get_element($2, 0, delim), get_type_id(curr_class->name));
+                                        reference_to_function(curr_func->name, T_ID_lineo, T_ID_colno, (curr_class!=NULL) ? curr_class->name : NULL);
                                         break;
                                     }
                                   }
@@ -152,10 +164,18 @@ functionDecl    :     type T_ID {
                                             case LEVEL_2:
                                             curr_func = NULL;
                                             break;
+                                            case LEVEL_3:
+                                            curr_func = NULL;
+                                            break;
                                           }
                                         }
                        stmtBlock        {
                                           func_scope = false;
+                                            switch(pass){
+                                              case LEVEL_3:
+                                                  move_out_from_scope(lineno, colno);
+                                                  break;
+                                            }
                                         }
                 ;
 formals         :     /*empty*/
@@ -175,6 +195,8 @@ classDecl       :     T_CLASS T_ID  {
                                           curr_class = find_class($2);
                                           break;
                                         case LEVEL_3:
+                                          move_in_new_scope(lineno, colno);
+                                          curr_class_scope = curr_scope->id;
                                           curr_class = find_class($2);
                                           break;
                                       }
@@ -187,6 +209,7 @@ classDecl       :     T_CLASS T_ID  {
                                                           break;
                                                         case LEVEL_3:
                                                           curr_class = NULL;
+                                                          move_out_from_scope(lineno, colno);
                                                           break;
                                                       }
                                                     }
@@ -212,7 +235,22 @@ fields          :     /*empty*/
 field           :     variableDecl
                 |     functionDecl
                 ;
-interfaceDecl   :     T_INTERFACE T_ID '{' prototypes '}'
+interfaceDecl   :     T_INTERFACE T_ID
+                      '{' {
+                            switch(pass){
+                              case LEVEL_3:
+                                move_in_new_scope(lineno, colno);
+                                break;
+                            }
+                          }
+                      prototypes
+                      '}' {
+                            switch(pass){
+                              case LEVEL_3:
+                                move_out_from_scope(lineno, colno);
+                                break;
+                            }
+                          }
                 ;
 prototypes      :     /*empty*/
                 |     prototype prototypes
@@ -220,7 +258,21 @@ prototypes      :     /*empty*/
 prototype       :     type T_ID '(' formals ')' ';'
                 |     T_VOID T_ID '(' formals ')' ';'
                 ;
-stmtBlock       :     '{' variableDecls stmts '}'
+stmtBlock       :     '{' {
+                            switch(pass){
+                              case LEVEL_3:
+                              move_in_new_scope(lineno, colno);
+                              break;
+                            }
+                          }
+                      variableDecls stmts
+                      '}' {
+                            switch(pass){
+                              case LEVEL_3:
+                                move_out_from_scope(lineno, colno);
+                                break;
+                            }
+                          }
                 ;
 stmts           :     /*empty*/
                 |     stmt stmts
@@ -262,7 +314,7 @@ expr            :     lvalue '=' expr
                                 switch(pass){
                                   case LEVEL_3:
                                     if (class_decl){
-                                     curr_entity = create_entity((char * ) "_this", create_loc(T_ID_lineo, T_ID_colno), curr_scope, curr_class->name, 0, curr_class->name, false, 0, 0.0, NULL, false);
+                                      curr_entity = create_entity((char * ) "this", create_loc(T_ID_lineo, T_ID_colno), curr_class_scope, curr_class->name, 0, NULL, false, 0, 0.0, NULL, false);
                                     }
                                     break;
                                 }
@@ -289,7 +341,8 @@ expr            :     lvalue '=' expr
                 |     T_NEW T_ID  {
                                     switch(pass){
                                       case LEVEL_3: //TODO memory allocation handling in tac
-                                        class_down_casting(curr_entity->obj_val, get_element($2, 0, delim));
+                                        down_casting(get_element($2, 0, delim));
+                                      break;
                                     }
                                   }
                 |     T_NEWARRAY  {
@@ -373,7 +426,13 @@ constant        :     T_INTCONSTANT       {
                                                 break;
                                             }
                                           }
-                |     T_NULL
+                |     T_NULL              {
+                                            switch(pass){
+                                              case LEVEL_3:
+                                                reference((char *) "NULL", T_ID_lineo, T_ID_colno);
+                                                break;
+                                            }
+                                          }
                 ;
 %%
 int main(int argc, char *argv[]){
@@ -392,7 +451,9 @@ int main(int argc, char *argv[]){
     show_constants(info_file);
     show_functions(info_file);
     show_classes(info_file);
-    show_symbol_table(sym_file);
+    show_scopes(sym_file);
+    show_symbol_table(sym_file, num_of_input_file_lines);
+    show_hash_table(sym_file);
     fclose(info_file);
     fclose(sym_file);
   	return 0;
