@@ -404,7 +404,7 @@ void push_entity(entity *ent) { // push
         entity_heap->pointer = entity_heap->root;
     } else {
         entity_entry *new_entry = create_entity_entry(ent);
-        new_entry->last = entity_heap->pointer;
+        new_entry->prev = entity_heap->pointer;
         entity_heap->pointer = new_entry;
     }
 }
@@ -412,8 +412,8 @@ void push_entity(entity *ent) { // push
 entity *pop_entity() { // pop
     if (entity_heap->pointer != NULL) {
         entity_entry *temp = entity_heap->pointer;
-        entity_heap->pointer = entity_heap->pointer->last;
-        free(temp->last);
+        entity_heap->pointer = entity_heap->pointer->prev;
+        free(temp->prev);
         return temp->val;
     }
     return NULL;
@@ -422,7 +422,7 @@ entity *pop_entity() { // pop
 entity_entry *create_entity_entry(entity *ent) {
     entity_entry *new_entry = (entity_entry *) malloc(sizeof(entity_entry));
     new_entry->val = ent;
-    new_entry->last = NULL;
+    new_entry->prev = NULL;
     return new_entry;
 }
 

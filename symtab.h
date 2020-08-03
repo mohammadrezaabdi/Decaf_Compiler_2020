@@ -45,10 +45,10 @@ typedef struct symbol_entry {
 
 typedef struct entity_entry {
     struct entity *val;
-    struct entity_entry *last;
+    struct entity_entry *prev;
 } entity_entry;
 
-typedef struct entity_stack { // for saving last previous reference of entities
+typedef struct entity_stack { // for saving prev previous reference of entities
     entity_entry *root;
     entity_entry *pointer;
 } entity_stack;
@@ -115,7 +115,7 @@ void add_to_symbol_table(entity *ent);
 
 symbol_entry *create_symbol_entry(entity *ent, int colno);
 
-entity *get_from_symbol_table(int line, int col); // todo in future
+entity *get_from_symbol_table(int line, int col);
 
 void push_entity(entity *ent);
 

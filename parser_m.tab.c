@@ -77,6 +77,7 @@
     #include "info.c"
     #include "symtab.c"
     #include "error.c"
+    #include "code_gen.c"
     #include "lex.yy.c"
     void yyerror(char const *s);
     #define YYDEBUG 1
@@ -84,7 +85,7 @@
 
 
 /* Line 189 of yacc.c  */
-#line 88 "parser_m.tab.c"
+#line 89 "parser_m.tab.c"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -156,7 +157,7 @@ typedef union YYSTYPE
 {
 
 /* Line 214 of yacc.c  */
-#line 26 "parser_m.y"
+#line 27 "parser_m.y"
 
         int intLiteral;
         double doubleLiteral;
@@ -167,7 +168,7 @@ typedef union YYSTYPE
 
 
 /* Line 214 of yacc.c  */
-#line 171 "parser_m.tab.c"
+#line 172 "parser_m.tab.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -179,7 +180,7 @@ typedef union YYSTYPE
 
 
 /* Line 264 of yacc.c  */
-#line 183 "parser_m.tab.c"
+#line 184 "parser_m.tab.c"
 
 #ifdef short
 # undef short
@@ -509,18 +510,18 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,    63,    63,    65,    66,    68,    69,    70,    71,    73,
-      74,    76,    78,   100,   101,   102,   103,   104,   105,   107,
-     124,   107,   144,   161,   144,   181,   182,   184,   185,   187,
-     187,   217,   218,   226,   227,   229,   230,   232,   233,   235,
-     236,   239,   238,   255,   256,   258,   259,   261,   261,   277,
-     278,   280,   281,   282,   283,   284,   285,   286,   287,   289,
-     290,   292,   294,   295,   297,   299,   301,   303,   305,   307,
-     308,   310,   311,   312,   313,   322,   323,   324,   325,   326,
-     327,   328,   329,   330,   331,   332,   333,   334,   335,   336,
-     337,   338,   339,   340,   341,   348,   348,   353,   360,   367,
-     369,   369,   377,   377,   386,   387,   389,   399,   409,   419,
-     429
+       0,    64,    64,    66,    67,    69,    70,    71,    72,    74,
+      75,    77,    79,   101,   102,   103,   104,   105,   106,   108,
+     125,   108,   145,   162,   145,   182,   183,   185,   186,   188,
+     188,   218,   219,   227,   228,   230,   231,   233,   234,   236,
+     237,   240,   239,   256,   257,   259,   260,   262,   262,   278,
+     279,   281,   282,   283,   284,   285,   286,   287,   288,   290,
+     291,   293,   295,   296,   298,   300,   302,   304,   306,   308,
+     309,   311,   312,   313,   314,   323,   324,   325,   326,   327,
+     328,   329,   330,   331,   332,   333,   334,   335,   336,   337,
+     338,   339,   340,   341,   342,   349,   349,   354,   361,   368,
+     370,   370,   378,   378,   387,   388,   390,   400,   410,   420,
+     430
 };
 #endif
 
@@ -1605,7 +1606,7 @@ yyreduce:
         case 12:
 
 /* Line 1455 of yacc.c  */
-#line 78 "parser_m.y"
+#line 79 "parser_m.y"
     {
                                   switch(pass){
                                     case LEVEL_2:
@@ -1632,49 +1633,49 @@ yyreduce:
   case 13:
 
 /* Line 1455 of yacc.c  */
-#line 100 "parser_m.y"
+#line 101 "parser_m.y"
     {(yyval.stringLiteral) = (yyvsp[(1) - (1)].stringLiteral);;}
     break;
 
   case 14:
 
 /* Line 1455 of yacc.c  */
-#line 101 "parser_m.y"
+#line 102 "parser_m.y"
     {(yyval.stringLiteral) = (yyvsp[(1) - (1)].stringLiteral);;}
     break;
 
   case 15:
 
 /* Line 1455 of yacc.c  */
-#line 102 "parser_m.y"
+#line 103 "parser_m.y"
     {(yyval.stringLiteral) = (yyvsp[(1) - (1)].stringLiteral);;}
     break;
 
   case 16:
 
 /* Line 1455 of yacc.c  */
-#line 103 "parser_m.y"
+#line 104 "parser_m.y"
     {(yyval.stringLiteral) = (yyvsp[(1) - (1)].stringLiteral);;}
     break;
 
   case 17:
 
 /* Line 1455 of yacc.c  */
-#line 104 "parser_m.y"
+#line 105 "parser_m.y"
     {(yyval.stringLiteral) = (yyvsp[(1) - (1)].stringLiteral);;}
     break;
 
   case 18:
 
 /* Line 1455 of yacc.c  */
-#line 105 "parser_m.y"
+#line 106 "parser_m.y"
     {(yyval.stringLiteral) = (yyvsp[(1) - (2)].stringLiteral);;}
     break;
 
   case 19:
 
 /* Line 1455 of yacc.c  */
-#line 107 "parser_m.y"
+#line 108 "parser_m.y"
     {
                                   func_decl = true;
                                   func_scope = true;
@@ -1697,7 +1698,7 @@ yyreduce:
   case 20:
 
 /* Line 1455 of yacc.c  */
-#line 124 "parser_m.y"
+#line 125 "parser_m.y"
     {
                                         func_decl = false;
                                         switch(pass){
@@ -1714,7 +1715,7 @@ yyreduce:
   case 21:
 
 /* Line 1455 of yacc.c  */
-#line 135 "parser_m.y"
+#line 136 "parser_m.y"
     {
                                         func_scope = false;
                                           switch(pass){
@@ -1728,7 +1729,7 @@ yyreduce:
   case 22:
 
 /* Line 1455 of yacc.c  */
-#line 144 "parser_m.y"
+#line 145 "parser_m.y"
     {
                                     func_decl = true;
                                     func_scope = true;
@@ -1751,7 +1752,7 @@ yyreduce:
   case 23:
 
 /* Line 1455 of yacc.c  */
-#line 161 "parser_m.y"
+#line 162 "parser_m.y"
     {
                                         func_decl = false;
                                           switch(pass){
@@ -1768,7 +1769,7 @@ yyreduce:
   case 24:
 
 /* Line 1455 of yacc.c  */
-#line 172 "parser_m.y"
+#line 173 "parser_m.y"
     {
                                           func_scope = false;
                                             switch(pass){
@@ -1782,7 +1783,7 @@ yyreduce:
   case 29:
 
 /* Line 1455 of yacc.c  */
-#line 187 "parser_m.y"
+#line 188 "parser_m.y"
     {
                                       class_decl = true;
                                       switch(pass){
@@ -1805,7 +1806,7 @@ yyreduce:
   case 30:
 
 /* Line 1455 of yacc.c  */
-#line 204 "parser_m.y"
+#line 205 "parser_m.y"
     {
                                                       class_decl = false;
                                                       switch(pass){
@@ -1823,7 +1824,7 @@ yyreduce:
   case 32:
 
 /* Line 1455 of yacc.c  */
-#line 218 "parser_m.y"
+#line 219 "parser_m.y"
     {
                                         switch(pass){
                                           case LEVEL_2:
@@ -1836,7 +1837,7 @@ yyreduce:
   case 41:
 
 /* Line 1455 of yacc.c  */
-#line 239 "parser_m.y"
+#line 240 "parser_m.y"
     {
                             switch(pass){
                               case LEVEL_3:
@@ -1849,7 +1850,7 @@ yyreduce:
   case 42:
 
 /* Line 1455 of yacc.c  */
-#line 247 "parser_m.y"
+#line 248 "parser_m.y"
     {
                             switch(pass){
                               case LEVEL_3:
@@ -1862,7 +1863,7 @@ yyreduce:
   case 47:
 
 /* Line 1455 of yacc.c  */
-#line 261 "parser_m.y"
+#line 262 "parser_m.y"
     {
                             switch(pass){
                               case LEVEL_3:
@@ -1875,7 +1876,7 @@ yyreduce:
   case 48:
 
 /* Line 1455 of yacc.c  */
-#line 269 "parser_m.y"
+#line 270 "parser_m.y"
     {
                             switch(pass){
                               case LEVEL_3:
@@ -1888,7 +1889,7 @@ yyreduce:
   case 74:
 
 /* Line 1455 of yacc.c  */
-#line 313 "parser_m.y"
+#line 314 "parser_m.y"
     {
                                 switch(pass){
                                   case LEVEL_3:
@@ -1903,7 +1904,7 @@ yyreduce:
   case 94:
 
 /* Line 1455 of yacc.c  */
-#line 341 "parser_m.y"
+#line 342 "parser_m.y"
     {
                                     switch(pass){
                                       case LEVEL_3: //TODO memory allocation handling in tac
@@ -1916,7 +1917,7 @@ yyreduce:
   case 95:
 
 /* Line 1455 of yacc.c  */
-#line 348 "parser_m.y"
+#line 349 "parser_m.y"
     {
                                     //TODO memory allocation handling in tac
                                   ;}
@@ -1925,7 +1926,7 @@ yyreduce:
   case 97:
 
 /* Line 1455 of yacc.c  */
-#line 353 "parser_m.y"
+#line 354 "parser_m.y"
     {
                                             switch(pass){
                                               case LEVEL_3:
@@ -1938,7 +1939,7 @@ yyreduce:
   case 98:
 
 /* Line 1455 of yacc.c  */
-#line 360 "parser_m.y"
+#line 361 "parser_m.y"
     {
                                             switch(pass){
                                               case LEVEL_3:
@@ -1951,7 +1952,7 @@ yyreduce:
   case 100:
 
 /* Line 1455 of yacc.c  */
-#line 369 "parser_m.y"
+#line 370 "parser_m.y"
     {
                                             switch(pass){
                                               case LEVEL_3:
@@ -1964,7 +1965,7 @@ yyreduce:
   case 102:
 
 /* Line 1455 of yacc.c  */
-#line 377 "parser_m.y"
+#line 378 "parser_m.y"
     {
                                             switch(pass){
                                               case LEVEL_3:
@@ -1977,7 +1978,7 @@ yyreduce:
   case 106:
 
 /* Line 1455 of yacc.c  */
-#line 389 "parser_m.y"
+#line 390 "parser_m.y"
     {
                                             switch(pass){
                                               case LEVEL_1:
@@ -1993,7 +1994,7 @@ yyreduce:
   case 107:
 
 /* Line 1455 of yacc.c  */
-#line 399 "parser_m.y"
+#line 400 "parser_m.y"
     {
                                             switch(pass){
                                               case LEVEL_1:
@@ -2009,7 +2010,7 @@ yyreduce:
   case 108:
 
 /* Line 1455 of yacc.c  */
-#line 409 "parser_m.y"
+#line 410 "parser_m.y"
     {
                                             switch(pass){
                                               case LEVEL_1:
@@ -2025,7 +2026,7 @@ yyreduce:
   case 109:
 
 /* Line 1455 of yacc.c  */
-#line 419 "parser_m.y"
+#line 420 "parser_m.y"
     {
                                             switch(pass){
                                               case LEVEL_1:
@@ -2041,7 +2042,7 @@ yyreduce:
   case 110:
 
 /* Line 1455 of yacc.c  */
-#line 429 "parser_m.y"
+#line 430 "parser_m.y"
     {
                                             switch(pass){
                                               case LEVEL_3:
@@ -2054,7 +2055,7 @@ yyreduce:
 
 
 /* Line 1455 of yacc.c  */
-#line 2058 "parser_m.tab.c"
+#line 2059 "parser_m.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -2266,7 +2267,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 437 "parser_m.y"
+#line 438 "parser_m.y"
 
 int main(int argc, char *argv[]){
     if(argc < 3){
@@ -2276,6 +2277,7 @@ int main(int argc, char *argv[]){
     //yydebug = 1;
     init_lists();
     input_file_path = argv[1];
+    FILE * out = fopen(argv[2], "w");
     FILE * info_file = fopen ("status.txt","w");
     FILE * sym_file = fopen ("symbol_table.txt","w");
     yyin = fopen(input_file_path, "r");
@@ -2287,8 +2289,10 @@ int main(int argc, char *argv[]){
     show_scopes(sym_file);
     show_symbol_table(sym_file, num_of_input_file_lines);
     show_hash_table(sym_file);
+    generate_data_part(out);
     fclose(info_file);
     fclose(sym_file);
+    fclose(out);
   	return 0;
 }
 

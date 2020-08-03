@@ -17,6 +17,7 @@
     #include "info.c"
     #include "symtab.c"
     #include "error.c"
+    #include "code_gen.c"
     #include "lex.yy.c"
     void yyerror(char const *s);
     #define YYDEBUG 1
@@ -443,6 +444,7 @@ int main(int argc, char *argv[]){
     //yydebug = 1;
     init_lists();
     input_file_path = argv[1];
+    FILE * out = fopen(argv[2], "w");
     FILE * info_file = fopen ("status.txt","w");
     FILE * sym_file = fopen ("symbol_table.txt","w");
     yyin = fopen(input_file_path, "r");
@@ -454,8 +456,10 @@ int main(int argc, char *argv[]){
     show_scopes(sym_file);
     show_symbol_table(sym_file, num_of_input_file_lines);
     show_hash_table(sym_file);
+    generate_data_part(out);
     fclose(info_file);
     fclose(sym_file);
+    fclose(out);
   	return 0;
 }
 
